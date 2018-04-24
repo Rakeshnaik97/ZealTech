@@ -9,7 +9,7 @@ public interface UserDao {
 
 	public boolean deleteUser(User user);
 
-	public User getProduct(String UserId);
+	public User getUser(String UserId);
 
 	public List<User> list();
 

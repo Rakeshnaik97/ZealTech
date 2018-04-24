@@ -2,33 +2,65 @@ package com.niit.ZealTechBackEnd.DaoImpl;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
+import org.hibernate.Query;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.niit.ZealTechBackEnd.Dao.ProductDao;
+import com.niit.ZealTechBackEnd.Model.Category;
 import com.niit.ZealTechBackEnd.Model.Product;
 
+@Transactional
+@Repository
+@EnableTransactionManagement
 public class ProductDaoImpl implements ProductDao {
+
+	@Autowired
+	SessionFactory sessionFactory;
+	public ProductDaoImpl(SessionFactory sessionFactory) {
+		// TODO Auto-generated constructor stub
+		this.sessionFactory=sessionFactory;
+	}
 
 	@Override
 	public boolean saveorupdateProduct(Product product) {
 		// TODO Auto-generated method stub
-		return false;
+		sessionFactory.getCurrentSession().saveOrUpdate(product);
+		return true;
+		
 	}
 
 	@Override
 	public boolean deleteProduct(Product product) {
 		// TODO Auto-generated method stub
-		return false;
+		sessionFactory.getCurrentSession().delete(product);
+		return true;
 	}
 
 	@Override
 	public Product getProduct(String ProductId) {
 		// TODO Auto-generated method stub
-		return null;
+		String s="From Product Where productId ='"+ProductId+"'";
+		Query q=sessionFactory.getCurrentSession().createQuery(s);
+		List<Product> list=(List<Product>)q.list();
+		if (list==null||list.isEmpty()) {
+			System.out.println("Product List Not Found");
+			return null;
+		} else {
+			System.out.println("Product list");
+			return list.get(0);
+		}
 	}
 
 	@Override
 	public List<Product> list() {
 		// TODO Auto-generated method stub
-		return null;
+		List<Product> product=(List<Product>)sessionFactory.getCurrentSession().createCriteria(Product.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+		return product;
 	}
 
 }

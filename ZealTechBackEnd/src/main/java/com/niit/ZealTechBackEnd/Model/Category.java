@@ -1,5 +1,12 @@
 package com.niit.ZealTechBackEnd.Model;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import org.springframework.stereotype.Component;
+
+@Entity
+@Table
+@Component
 public class Category {
 	private String catId;
 	private String catName;
