@@ -15,7 +15,7 @@ import com.niit.ZealTechBackEnd.Model.Category;
 import com.niit.ZealTechBackEnd.Model.User;
 
 @Transactional
-@Repository
+@Repository("userDao")
 @EnableTransactionManagement
 public class UserDaoImpl implements UserDao {
 
@@ -38,15 +38,16 @@ public class UserDaoImpl implements UserDao {
 	public boolean deleteUser(User user) {
 		// TODO Auto-generated method stub
 		sessionFactory.getCurrentSession().delete(user);
-		return true;	}
+		return true;
+	}
 
 	@Override
 	public User getUser(String UserId) {
 		// TODO Auto-generated method stub
-		String s="From User Where UserId ='"+UserId+"'";
-		Query q=sessionFactory.getCurrentSession().createQuery(s);
-		List<User> list=(List<User>)q.list();
-		if (list==null||list.isEmpty()) {
+		String s = "From User Where UserId ='" + UserId + "'";
+		Query q = sessionFactory.getCurrentSession().createQuery(s);
+		List<User> list = (List<User>) q.list();
+		if (list == null || list.isEmpty()) {
 			System.out.println("User List Not Found");
 			return null;
 		} else {
@@ -54,12 +55,11 @@ public class UserDaoImpl implements UserDao {
 			return list.get(0);
 		}
 	}
-	
 
 	@Override
 	public List<User> list() {
 		// TODO Auto-generated method stub
-		List<User> user=(List<User>)sessionFactory.getCurrentSession().createCriteria(User.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+		List<User> user = (List<User>) sessionFactory.getCurrentSession().createCriteria(User.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
 		return user;
 	}
 

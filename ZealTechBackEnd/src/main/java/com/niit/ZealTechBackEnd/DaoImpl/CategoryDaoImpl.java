@@ -1,7 +1,6 @@
 package com.niit.ZealTechBackEnd.DaoImpl;
 
 import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
@@ -14,7 +13,7 @@ import com.niit.ZealTechBackEnd.Dao.CategoryDao;
 import com.niit.ZealTechBackEnd.Model.Category;
 
 @Transactional
-@Repository
+@Repository("categoryDao")
 @EnableTransactionManagement
 public class CategoryDaoImpl implements CategoryDao {
 
@@ -31,7 +30,7 @@ public class CategoryDaoImpl implements CategoryDao {
 		// TODO Auto-generated method stub
 		sessionFactory.getCurrentSession().saveOrUpdate(category);
 		return true;
-		
+
 	}
 
 	@Override
@@ -44,10 +43,10 @@ public class CategoryDaoImpl implements CategoryDao {
 	@Override
 	public Category getCategory(String catId) {
 		// TODO Auto-generated method stub
-		String s="From Category Where catId='"+catId+"'";
-		Query q=sessionFactory.getCurrentSession().createQuery(s);
-		List<Category> list=(List<Category>)q.list();
-		if (list==null||list.isEmpty()) {
+		String s = "From Category Where catId='" + catId + "'";
+		Query q = sessionFactory.getCurrentSession().createQuery(s);
+		List<Category> list = (List<Category>) q.list();
+		if (list == null || list.isEmpty()) {
 			System.out.println("Category List Not Found");
 			return null;
 		} else {
@@ -59,7 +58,7 @@ public class CategoryDaoImpl implements CategoryDao {
 	@Override
 	public List<Category> list() {
 		// TODO Auto-generated method stub
-		List<Category> category=(List<Category>)sessionFactory.getCurrentSession().createCriteria(Category.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+		List<Category> category = (List<Category>) sessionFactory.getCurrentSession().createCriteria(Category.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
 		return category;
 
 	}

@@ -15,7 +15,7 @@ import com.niit.ZealTechBackEnd.Model.Category;
 import com.niit.ZealTechBackEnd.Model.Supplier;
 
 @Transactional
-@Repository
+@Repository("supplierDao")
 @EnableTransactionManagement
 public class SupplierDaoImpl implements SupplierDao {
 

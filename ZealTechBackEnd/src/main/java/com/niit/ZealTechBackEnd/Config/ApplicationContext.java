@@ -27,12 +27,12 @@ import com.niit.ZealTechBackEnd.Model.Product;
 import com.niit.ZealTechBackEnd.Model.Supplier;
 import com.niit.ZealTechBackEnd.Model.User;
 
-@Configuration
-@ComponentScan("com.niit.*")
-@EnableTransactionManagement
+@Configuration		//to let know it is configuration
+@ComponentScan("com.niit.*")	//group id When i refresh compiler should search entire in com.niit.*
+@EnableTransactionManagement	//when ever i call save or delete to let know where is that object at repsoritry in daoimpl it both should have same name
 
 public class ApplicationContext {
-	@Bean("dataSource")
+	@Bean("dataSource")			//Connection of h2 database  
 	public DataSource getDataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("org.h2.Driver");
@@ -42,17 +42,17 @@ public class ApplicationContext {
 		return dataSource;
 	}
 
-	private Properties getHibernateProperties() {
+	private Properties getHibernateProperties() {   //to connect many databases with same code
 		Properties properties = new Properties();
-		properties.put("hibernate.connection.pool_size", "10");
-		properties.put("hibernate.hbm2ddl.auto", "update");
-		properties.put("hibernate.show_sql", "true");
-		properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
+		properties.put("hibernate.connection.pool_size", "10"); //maxium 10 seize can be given to pool 
+		properties.put("hibernate.hbm2ddl.auto", "update");		//automatic creation of ddl (all tables) in the database
+		properties.put("hibernate.show_sql", "true");			//Statements in databases(sql,insertion,all statements) should show 
+		properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");		//Since usin with h2Dialect
 		return properties;
 	}
 
 	@Autowired
-	@Bean("sessionFactory")
+	@Bean("sessionFactory")				//model class as to be refered since that class table ll be created
 	public SessionFactory getSessionFactory(DataSource dataSource) {
 		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 		sessionBuilder.addProperties(getHibernateProperties());
@@ -64,13 +64,13 @@ public class ApplicationContext {
 	}
 
 	@Autowired
-	@Bean("transactionManager")
+	@Bean("transactionManager")  		//save or update method
 	public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory) {
 		HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionFactory);
 		return transactionManager;
 	}
 
-	@Autowired
+	@Autowired		//accesing  @repsoritary and callin all methods inside it  
 	@Bean("categoryDao")
 	public CategoryDao getCategoryDao(SessionFactory sessionFactory) {
 		return new CategoryDaoImpl(sessionFactory);
