@@ -32,13 +32,13 @@ import com.niit.ZealTechBackEnd.Model.User;
 @EnableTransactionManagement	//when ever i call save or delete to let know where is that object at repsoritry in daoimpl it both should have same name
 
 public class ApplicationContext {
-	@Bean("dataSource")			//Connection of h2 database  
+	@Bean("dataSource")										//Connection of h2 database  
 	public DataSource getDataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("org.h2.Driver");
-		dataSource.setUrl("jdbc:h2:tcp://localhost/~/test/ShoppeMantra1");
-		dataSource.setUsername("abhishek");
-		dataSource.setPassword("abhishek");
+		dataSource.setUrl("jdbc:h2:tcp://localhost/~/ZealTech");
+		dataSource.setUsername("raki");
+		dataSource.setPassword("raki");
 		return dataSource;
 	}
 
@@ -52,7 +52,7 @@ public class ApplicationContext {
 	}
 
 	@Autowired
-	@Bean("sessionFactory")				//model class as to be refered since that class table ll be created
+	@Bean("sessionFactory")				//model class as to be referred since that class table ll be created
 	public SessionFactory getSessionFactory(DataSource dataSource) {
 		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 		sessionBuilder.addProperties(getHibernateProperties());
@@ -70,26 +70,26 @@ public class ApplicationContext {
 		return transactionManager;
 	}
 
-	@Autowired		//accesing  @repsoritary and callin all methods inside it  
+	@Autowired		//accesing  @repsoritary and calling all methods inside it  
 	@Bean("categoryDao")
 	public CategoryDao getCategoryDao(SessionFactory sessionFactory) {
 		return new CategoryDaoImpl(sessionFactory);
 	}
 
 	@Autowired
-	@Bean("ProductDao")
+	@Bean("productDao")
 	public ProductDao getProductDao(SessionFactory sessionFactory) {
 		return new ProductDaoImpl(sessionFactory);
 	}
 
 	@Autowired
-	@Bean("SupplierDao")
+	@Bean("supplierDao")
 	public SupplierDao getSupplierDao(SessionFactory sessionFactory) {
 		return new SupplierDaoImpl(sessionFactory);
 	}
 
 	@Autowired
-	@Bean("UserDao")
+	@Bean("userDao")
 	public UserDao getUserDao(SessionFactory sessionFactory) {
 		return new UserDaoImpl(sessionFactory);
 	}

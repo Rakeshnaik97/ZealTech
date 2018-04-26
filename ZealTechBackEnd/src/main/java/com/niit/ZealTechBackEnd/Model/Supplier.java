@@ -1,6 +1,9 @@
 package com.niit.ZealTechBackEnd.Model;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -10,6 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 
 public class Supplier {
+	@Id
 	private String supplierId;
 	private String supplierName;
 	private String supplierAddress;
@@ -46,5 +50,18 @@ public class Supplier {
 	public void setSupplierPh_no(String supplierPh_no) {
 		SupplierPh_no = supplierPh_no;
 	}
+	
+	@ManyToOne
+	@JoinColumns(name="supplierId")
+	private Category category;
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+	
 
 }

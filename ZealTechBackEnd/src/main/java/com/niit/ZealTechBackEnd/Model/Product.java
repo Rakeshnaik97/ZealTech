@@ -1,6 +1,9 @@
 package com.niit.ZealTechBackEnd.Model;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -9,6 +12,7 @@ import org.springframework.stereotype.Component;
 @Table
 @Component
 public class Product {
+	@Id
 	private String productId;
 	private String productName;
 	private String productDescription;
@@ -54,5 +58,18 @@ public class Product {
 	public void setProductPrice(String productPrice) {
 		this.productPrice = productPrice;
 	}
+	
+	@ManyToOne
+	@JoinColumn(name="catId")
+	private Category category;
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+	
 
 }

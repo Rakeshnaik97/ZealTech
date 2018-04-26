@@ -1,7 +1,6 @@
 package com.niit.ZealTech.Test;
 
 import java.util.List;
-
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.niit.ZealTechBackEnd.Dao.CategoryDao;
@@ -9,11 +8,11 @@ import com.niit.ZealTechBackEnd.Model.Category;
 
 public class CategoryTest {
 	public static void main(String[] args) {
-		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
-		ctx.scan("com.niit.*");
-		ctx.refresh();
-		Category cat = (Category) ctx.getBean("category");
-		CategoryDao catDao = (CategoryDao) ctx.getBean("categoryDao");
+		AnnotationConfigApplicationContext context= new AnnotationConfigApplicationContext();
+		context.scan("com.niit.*");
+		context.refresh();
+		Category cat = (Category)context.getBean("category");
+		CategoryDao catDao = (CategoryDao)context.getBean("categoryDao");
 
 		cat.setCatId("C101");
 		cat.setCatName("Category1");

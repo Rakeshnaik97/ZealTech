@@ -27,21 +27,21 @@ public class UserDaoImpl implements UserDao {
 		this.sessionFactory = sessionFactory;
 	}
 
-	@Override
+	
 	public boolean saveorupdateUser(User user) {
 		// TODO Auto-generated method stub
 		sessionFactory.getCurrentSession().saveOrUpdate(user);
 		return true;
 	}
 
-	@Override
+	
 	public boolean deleteUser(User user) {
 		// TODO Auto-generated method stub
 		sessionFactory.getCurrentSession().delete(user);
 		return true;
 	}
 
-	@Override
+	
 	public User getUser(String UserId) {
 		// TODO Auto-generated method stub
 		String s = "From User Where UserId ='" + UserId + "'";
@@ -56,7 +56,7 @@ public class UserDaoImpl implements UserDao {
 		}
 	}
 
-	@Override
+	
 	public List<User> list() {
 		// TODO Auto-generated method stub
 		List<User> user = (List<User>) sessionFactory.getCurrentSession().createCriteria(User.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();

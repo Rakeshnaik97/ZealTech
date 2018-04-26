@@ -1,6 +1,7 @@
 package com.niit.ZealTechBackEnd.Model;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Component;
 @Table
 @Component
 public class User {
+	@Id
 	private String userId;
 	private String userName;
 	private String useraddress;
