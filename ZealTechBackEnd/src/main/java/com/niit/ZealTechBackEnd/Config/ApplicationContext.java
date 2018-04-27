@@ -15,27 +15,31 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.niit.ZealTechBackEnd.Dao.AuthenticationDao;
+import com.niit.ZealTechBackEnd.Dao.BillingDao;
 import com.niit.ZealTechBackEnd.Dao.CategoryDao;
 import com.niit.ZealTechBackEnd.Dao.ProductDao;
 import com.niit.ZealTechBackEnd.Dao.SupplierDao;
 import com.niit.ZealTechBackEnd.Dao.UserDao;
 import com.niit.ZealTechBackEnd.DaoImpl.AuthenticationDaoImpl;
+import com.niit.ZealTechBackEnd.DaoImpl.BillingDaoImpl;
 import com.niit.ZealTechBackEnd.DaoImpl.CategoryDaoImpl;
 import com.niit.ZealTechBackEnd.DaoImpl.ProductDaoImpl;
 import com.niit.ZealTechBackEnd.DaoImpl.SupplierDaoImpl;
 import com.niit.ZealTechBackEnd.DaoImpl.UserDaoImpl;
 import com.niit.ZealTechBackEnd.Model.Authentication;
+import com.niit.ZealTechBackEnd.Model.Billing;
 import com.niit.ZealTechBackEnd.Model.Category;
 import com.niit.ZealTechBackEnd.Model.Product;
 import com.niit.ZealTechBackEnd.Model.Supplier;
 import com.niit.ZealTechBackEnd.Model.User;
 
-@Configuration		//to let know it is configuration
-@ComponentScan("com.niit.*")	//group id When i refresh compiler should search entire in com.niit.*
-@EnableTransactionManagement	//when ever i call save or delete to let know where is that object at repsoritry in daoimpl it both should have same name
+@Configuration // to let know it is configuration
+@ComponentScan("com.niit.*") // group id When i refresh compiler should search entire in com.niit.*
+@EnableTransactionManagement // when ever i call save or delete to let know where is that object at
+								// repsoritry in daoimpl it both should have same name
 
 public class ApplicationContext {
-	@Bean("dataSource")										//Connection of h2 database  
+	@Bean("dataSource") // Connection of h2 database
 	public DataSource getDataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("org.h2.Driver");
@@ -45,17 +49,18 @@ public class ApplicationContext {
 		return dataSource;
 	}
 
-	private Properties getHibernateProperties() {   //to connect many databases with same code
+	private Properties getHibernateProperties() { // to connect many databases with same code
 		Properties properties = new Properties();
-		properties.put("hibernate.connection.pool_size", "10"); //maxium 10 seize can be given to pool 
-		properties.put("hibernate.hbm2ddl.auto", "update");		//automatic creation of ddl (all tables) in the database
-		properties.put("hibernate.show_sql", "true");			//Statements in databases(sql,insertion,all statements) should show 
-		properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");		//Since usin with h2Dialect
+		properties.put("hibernate.connection.pool_size", "10"); // maxium 10 seize can be given to pool
+		properties.put("hibernate.hbm2ddl.auto", "update"); // automatic creation of ddl (all tables) in the database
+		properties.put("hibernate.show_sql", "true"); // Statements in databases(sql,insertion,all statements) should
+														// show
+		properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect"); // Since usin with h2Dialect
 		return properties;
 	}
 
 	@Autowired
-	@Bean("sessionFactory")				//model class as to be referred since that class table ll be created
+	@Bean("sessionFactory") // model class as to be referred since that class table ll be created
 	public SessionFactory getSessionFactory(DataSource dataSource) {
 		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 		sessionBuilder.addProperties(getHibernateProperties());
@@ -64,17 +69,18 @@ public class ApplicationContext {
 		sessionBuilder.addAnnotatedClass(Supplier.class);
 		sessionBuilder.addAnnotatedClass(User.class);
 		sessionBuilder.addAnnotatedClass(Authentication.class);
+		sessionBuilder.addAnnotatedClass(Billing.class);
 		return sessionBuilder.buildSessionFactory();
 	}
 
 	@Autowired
-	@Bean("transactionManager")  		//save or update method
+	@Bean("transactionManager") // save or update method
 	public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory) {
 		HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionFactory);
 		return transactionManager;
 	}
 
-	@Autowired		//accesing  @repsoritary and calling all methods inside it  
+	@Autowired // accesing @repsoritary and calling all methods inside it
 	@Bean("categoryDao")
 	public CategoryDao getCategoryDao(SessionFactory sessionFactory) {
 		return new CategoryDaoImpl(sessionFactory);
@@ -97,11 +103,17 @@ public class ApplicationContext {
 	public UserDao getUserDao(SessionFactory sessionFactory) {
 		return new UserDaoImpl(sessionFactory);
 	}
-	
+
 	@Autowired
 	@Bean("authenticationDao")
 	public AuthenticationDao getAuthenticationDao(SessionFactory sessionFactory) {
 		return new AuthenticationDaoImpl(sessionFactory);
+	}
+
+	@Autowired
+	@Bean("billingDao")
+	public BillingDao getBillingDao(SessionFactory sessionFactory) {
+		return new BillingDaoImpl(sessionFactory);
 	}
 
 }

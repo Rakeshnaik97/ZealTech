@@ -15,7 +15,7 @@ import com.niit.ZealTechBackEnd.Dao.AuthenticationDao;
 import com.niit.ZealTechBackEnd.Model.Authentication;
 
 @Transactional
-@Repository("authenticaltion")
+@Repository("authenticationDao")
 @EnableTransactionManagement
 public class AuthenticationDaoImpl implements AuthenticationDao {
 
