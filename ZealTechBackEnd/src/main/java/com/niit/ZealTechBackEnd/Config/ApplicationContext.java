@@ -14,14 +14,17 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.niit.ZealTechBackEnd.Dao.AuthenticationDao;
 import com.niit.ZealTechBackEnd.Dao.CategoryDao;
 import com.niit.ZealTechBackEnd.Dao.ProductDao;
 import com.niit.ZealTechBackEnd.Dao.SupplierDao;
 import com.niit.ZealTechBackEnd.Dao.UserDao;
+import com.niit.ZealTechBackEnd.DaoImpl.AuthenticationDaoImpl;
 import com.niit.ZealTechBackEnd.DaoImpl.CategoryDaoImpl;
 import com.niit.ZealTechBackEnd.DaoImpl.ProductDaoImpl;
 import com.niit.ZealTechBackEnd.DaoImpl.SupplierDaoImpl;
 import com.niit.ZealTechBackEnd.DaoImpl.UserDaoImpl;
+import com.niit.ZealTechBackEnd.Model.Authentication;
 import com.niit.ZealTechBackEnd.Model.Category;
 import com.niit.ZealTechBackEnd.Model.Product;
 import com.niit.ZealTechBackEnd.Model.Supplier;
@@ -60,6 +63,7 @@ public class ApplicationContext {
 		sessionBuilder.addAnnotatedClass(Product.class);
 		sessionBuilder.addAnnotatedClass(Supplier.class);
 		sessionBuilder.addAnnotatedClass(User.class);
+		sessionBuilder.addAnnotatedClass(Authentication.class);
 		return sessionBuilder.buildSessionFactory();
 	}
 
@@ -92,6 +96,12 @@ public class ApplicationContext {
 	@Bean("userDao")
 	public UserDao getUserDao(SessionFactory sessionFactory) {
 		return new UserDaoImpl(sessionFactory);
+	}
+	
+	@Autowired
+	@Bean("authenticationDao")
+	public AuthenticationDao getAuthenticationDao(SessionFactory sessionFactory) {
+		return new AuthenticationDaoImpl(sessionFactory);
 	}
 
 }
