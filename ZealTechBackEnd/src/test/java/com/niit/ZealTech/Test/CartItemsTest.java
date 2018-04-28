@@ -32,7 +32,9 @@ public class CartItemsTest {
 		cartItems.setCart(cart);
 		product = productDao.getProduct("P101");
 		cartItems.setProduct(product);
-		
+
+		cartItemsDao.saveorupdateCartItems(cartItems);
+
 		if (cartItemsDao.saveorupdateCartItems(cartItems) == true) {
 			System.out.println("CartItems added Successfully");
 		} else {
@@ -45,7 +47,9 @@ public class CartItemsTest {
 		cartItems.setCart(cart);
 		product = productDao.getProduct("P102");
 		cartItems.setProduct(product);
-		
+
+		cartItemsDao.saveorupdateCartItems(cartItems);
+
 		if (cartItemsDao.saveorupdateCartItems(cartItems) == true) {
 			System.out.println("CartItems added Successfully");
 		} else {

@@ -29,6 +29,7 @@ public class BillingTest {
 		bill.setBillingCountry("India");
 		user = userDao.getUser("U101"); // setting Value For user for Unique UserId
 		bill.setUser(user);
+		billingDao.saveorupdateBilling(bill);
 		if (billingDao.saveorupdateBilling(bill) == true) {
 			System.out.println("Bill Added Successfully");
 		} else {
@@ -42,6 +43,7 @@ public class BillingTest {
 		bill.setBillingCountry("India");
 		user = userDao.getUser("U102");
 		bill.setUser(user);
+		billingDao.saveorupdateBilling(bill);
 		if (billingDao.saveorupdateBilling(bill) == true) {
 			System.out.println("Bill Added Successfully");
 		} else {

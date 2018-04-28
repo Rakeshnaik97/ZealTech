@@ -23,6 +23,18 @@ public class Billing {
 	@JoinColumn(name = "userId")
 	private User user;
 
+	@OneToOne
+	@JoinColumn(name = "orderId")
+	private Order order;
+
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
+	}
+
 	public User getUser() {
 		return user;
 	}

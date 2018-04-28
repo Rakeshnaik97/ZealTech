@@ -18,6 +18,8 @@ public class CartTest {
 		cart.setCartId("CT101");
 		cart.setCartGrandTotal(143.413);
 		cart.setCartTotalItems(45);
+		cartDao.saveorupdateCart(cart);
+		
 		if (cartDao.saveorupdateCart(cart) == true) {
 			System.out.println("Cart added Successfully");
 		} else {
@@ -27,6 +29,9 @@ public class CartTest {
 		cart.setCartId("CT102");
 		cart.setCartGrandTotal(143.413);
 		cart.setCartTotalItems(45);
+		
+		cartDao.saveorupdateCart(cart);
+		
 		if (cartDao.saveorupdateCart(cart) == true) {
 			System.out.println("Cart added Successfully");
 		} else {

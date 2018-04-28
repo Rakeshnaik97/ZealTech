@@ -18,6 +18,7 @@ public class AuthenticationTest {
 		auth.setRoleId("A101");
 		auth.setRoleName("Administrator");
 		auth.setUserName("RakeshNaik");
+		authDao.saveorupdateAuthentication(auth);
 		if (authDao.saveorupdateAuthentication(auth) == true) {
 			System.out.println("Authentication is Added Succesfully");
 		} else {
@@ -27,6 +28,7 @@ public class AuthenticationTest {
 		auth.setRoleId("A102");
 		auth.setRoleName("Administrator");
 		auth.setUserName("RakeshNaik");
+		authDao.saveorupdateAuthentication(auth);
 		if (authDao.saveorupdateAuthentication(auth) == true) {
 			System.out.println("Authentication is Added Succesfully");
 		} else {

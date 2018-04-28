@@ -19,7 +19,10 @@ import com.niit.ZealTechBackEnd.Dao.BillingDao;
 import com.niit.ZealTechBackEnd.Dao.CartDao;
 import com.niit.ZealTechBackEnd.Dao.CartItemsDao;
 import com.niit.ZealTechBackEnd.Dao.CategoryDao;
+import com.niit.ZealTechBackEnd.Dao.OrderDao;
+import com.niit.ZealTechBackEnd.Dao.OrderItemsDao;
 import com.niit.ZealTechBackEnd.Dao.ProductDao;
+import com.niit.ZealTechBackEnd.Dao.ShippingDao;
 import com.niit.ZealTechBackEnd.Dao.SupplierDao;
 import com.niit.ZealTechBackEnd.Dao.UserDao;
 import com.niit.ZealTechBackEnd.DaoImpl.AuthenticationDaoImpl;
@@ -27,7 +30,10 @@ import com.niit.ZealTechBackEnd.DaoImpl.BillingDaoImpl;
 import com.niit.ZealTechBackEnd.DaoImpl.CartDaoimpl;
 import com.niit.ZealTechBackEnd.DaoImpl.CartItemsDaoImpl;
 import com.niit.ZealTechBackEnd.DaoImpl.CategoryDaoImpl;
+import com.niit.ZealTechBackEnd.DaoImpl.OrderDaoImpl;
+import com.niit.ZealTechBackEnd.DaoImpl.OrderItemsDaoImpl;
 import com.niit.ZealTechBackEnd.DaoImpl.ProductDaoImpl;
+import com.niit.ZealTechBackEnd.DaoImpl.ShippingDaoImpl;
 import com.niit.ZealTechBackEnd.DaoImpl.SupplierDaoImpl;
 import com.niit.ZealTechBackEnd.DaoImpl.UserDaoImpl;
 import com.niit.ZealTechBackEnd.Model.Authentication;
@@ -35,7 +41,10 @@ import com.niit.ZealTechBackEnd.Model.Billing;
 import com.niit.ZealTechBackEnd.Model.Cart;
 import com.niit.ZealTechBackEnd.Model.CartItems;
 import com.niit.ZealTechBackEnd.Model.Category;
+import com.niit.ZealTechBackEnd.Model.Order;
+import com.niit.ZealTechBackEnd.Model.OrderItems;
 import com.niit.ZealTechBackEnd.Model.Product;
+import com.niit.ZealTechBackEnd.Model.Shipping;
 import com.niit.ZealTechBackEnd.Model.Supplier;
 import com.niit.ZealTechBackEnd.Model.User;
 
@@ -78,6 +87,9 @@ public class ApplicationContext {
 		sessionBuilder.addAnnotatedClass(Billing.class);
 		sessionBuilder.addAnnotatedClass(Cart.class);
 		sessionBuilder.addAnnotatedClass(CartItems.class);
+		sessionBuilder.addAnnotatedClass(Order.class);
+		sessionBuilder.addAnnotatedClass(OrderItems.class);
+		sessionBuilder.addAnnotatedClass(Shipping.class);
 		return sessionBuilder.buildSessionFactory();
 	}
 
@@ -134,5 +146,23 @@ public class ApplicationContext {
 	@Bean("cartItemsDao")
 	public CartItemsDao getCartItemsDao(SessionFactory sessionFactory) {
 		return new CartItemsDaoImpl(sessionFactory);
+	}
+	
+	@Autowired
+	@Bean("orderDao")
+	public OrderDao getOrderDao(SessionFactory sessionFactory) {
+		return new OrderDaoImpl(sessionFactory);
+	}
+	
+	@Autowired
+	@Bean("orderItemsDao")
+	public OrderItemsDao getOrderItemsDao(SessionFactory sessionFactory) {
+		return new OrderItemsDaoImpl(sessionFactory);
+	}
+	
+	@Autowired
+	@Bean("shippingDao")
+	public ShippingDao getShippingDao(SessionFactory sessionFactory) {
+		return new ShippingDaoImpl(sessionFactory);
 	}
 }
