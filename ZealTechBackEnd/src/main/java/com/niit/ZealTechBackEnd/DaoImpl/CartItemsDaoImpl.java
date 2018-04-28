@@ -10,56 +10,55 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.niit.ZealTechBackEnd.Dao.CartDao;
-import com.niit.ZealTechBackEnd.Model.Cart;
+import com.niit.ZealTechBackEnd.Dao.CartItemsDao;
+import com.niit.ZealTechBackEnd.Model.CartItems;
 
-@Repository("cartDao")
 @Transactional
 @EnableTransactionManagement
-
-public class CartDaoimpl implements CartDao {
+@Repository("cartItemsDao")
+public class CartItemsDaoImpl implements CartItemsDao {
 
 	@Autowired
 	SessionFactory sessionFactory;
 
-	public CartDaoimpl(SessionFactory sessionFactory) {
+	public CartItemsDaoImpl(SessionFactory sessionFactory) {
 		// TODO Auto-generated constructor stub
 		this.sessionFactory = sessionFactory;
 	}
 
 	@Override
-	public boolean saveorupdateCart(Cart cart) {
+	public boolean saveorupdateCartItems(CartItems cartItems) {
 		// TODO Auto-generated method stub
-		sessionFactory.getCurrentSession().saveOrUpdate(cart);
+		sessionFactory.getCurrentSession().saveOrUpdate(cartItems);
 		return true;
 	}
 
 	@Override
-	public boolean deleteCart(Cart cart) {
+	public boolean deleteCartItems(CartItems cartItems) {
 		// TODO Auto-generated method stub
-		sessionFactory.getCurrentSession().delete(cart);
+		sessionFactory.getCurrentSession().delete(cartItems);
 		return true;
 	}
 
 	@Override
-	public Cart getCart(String cartId) {
+	public CartItems getCartItems(String cartItemsId) {
 		// TODO Auto-generated method stub
-		String s = "From Cart where cartId='" + cartId + "'";
+		String s = "From CartItems where cartItemsId='" + cartItemsId + "'";
 		Query q = sessionFactory.getCurrentSession().createQuery(s);
-		List<Cart> list = (List<Cart>) q.list();
+		List<CartItems> list = (List<CartItems>) q.list();
 		if (list == null || list.isEmpty()) {
-			System.out.println("Cart Not Found");
+			System.out.println("CartItems list Is Empty");
 			return null;
 		} else {
-			System.out.println("Cart List");
+			System.out.println("CartItems List:");
 			return list.get(0);
 		}
 	}
 
 	@Override
-	public List<Cart> list() {
+	public List<CartItems> list() {
 		// TODO Auto-generated method stub
-		List<Cart> list = (List<Cart>) sessionFactory.getCurrentSession().createCriteria(Cart.class)
+		List<CartItems> list = sessionFactory.getCurrentSession().createCriteria(CartItems.class)
 				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
 		return list;
 	}

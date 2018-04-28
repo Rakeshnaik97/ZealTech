@@ -1,7 +1,10 @@
 package com.niit.ZealTechBackEnd.Model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -14,6 +17,17 @@ public class Cart {
 	private String cartId;
 	private double cartGrandTotal = 0.0;
 	private int cartTotalItems = 0;
+
+	@OneToMany(mappedBy = "cart")
+	private List<CartItems> cartItems;
+
+	public List<CartItems> getCartItems() {
+		return cartItems;
+	}
+
+	public void setCartItems(List<CartItems> cartItems) {
+		this.cartItems = cartItems;
+	}
 
 	public String getCartId() {
 		return cartId;
