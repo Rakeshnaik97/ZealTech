@@ -20,10 +20,8 @@ public class CategoryDaoImpl implements CategoryDao {
 	@Autowired
 	SessionFactory sessionFactory;
 
-	
-
 	public CategoryDaoImpl(SessionFactory sessionFactory) {
-		this.sessionFactory=sessionFactory;
+		this.sessionFactory = sessionFactory;
 	}
 
 	public boolean saveorupdateCategory(Category category) {
@@ -33,13 +31,11 @@ public class CategoryDaoImpl implements CategoryDao {
 
 	}
 
-
 	public boolean deleteCategory(Category category) {
 		// TODO Auto-generated method stub
 		sessionFactory.getCurrentSession().delete(category);
 		return true;
 	}
-
 
 	public Category getCategory(String catId) {
 		// TODO Auto-generated method stub
@@ -55,10 +51,10 @@ public class CategoryDaoImpl implements CategoryDao {
 		}
 	}
 
-	
 	public List<Category> list() {
 		// TODO Auto-generated method stub
-		List<Category> category = (List<Category>) sessionFactory.getCurrentSession().createCriteria(Category.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+		List<Category> category = (List<Category>) sessionFactory.getCurrentSession().createCriteria(Category.class)
+				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
 		return category;
 
 	}

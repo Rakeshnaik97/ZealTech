@@ -16,18 +16,21 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.niit.ZealTechBackEnd.Dao.AuthenticationDao;
 import com.niit.ZealTechBackEnd.Dao.BillingDao;
+import com.niit.ZealTechBackEnd.Dao.CartDao;
 import com.niit.ZealTechBackEnd.Dao.CategoryDao;
 import com.niit.ZealTechBackEnd.Dao.ProductDao;
 import com.niit.ZealTechBackEnd.Dao.SupplierDao;
 import com.niit.ZealTechBackEnd.Dao.UserDao;
 import com.niit.ZealTechBackEnd.DaoImpl.AuthenticationDaoImpl;
 import com.niit.ZealTechBackEnd.DaoImpl.BillingDaoImpl;
+import com.niit.ZealTechBackEnd.DaoImpl.CartDaoimpl;
 import com.niit.ZealTechBackEnd.DaoImpl.CategoryDaoImpl;
 import com.niit.ZealTechBackEnd.DaoImpl.ProductDaoImpl;
 import com.niit.ZealTechBackEnd.DaoImpl.SupplierDaoImpl;
 import com.niit.ZealTechBackEnd.DaoImpl.UserDaoImpl;
 import com.niit.ZealTechBackEnd.Model.Authentication;
 import com.niit.ZealTechBackEnd.Model.Billing;
+import com.niit.ZealTechBackEnd.Model.Cart;
 import com.niit.ZealTechBackEnd.Model.Category;
 import com.niit.ZealTechBackEnd.Model.Product;
 import com.niit.ZealTechBackEnd.Model.Supplier;
@@ -51,11 +54,11 @@ public class ApplicationContext {
 
 	private Properties getHibernateProperties() { // to connect many databases with same code
 		Properties properties = new Properties();
-		properties.put("hibernate.connection.pool_size", "10"); // maxium 10 seize can be given to pool
+		properties.put("hibernate.connection.pool_size", "10"); // Maximum 10 seize can be given to pool
 		properties.put("hibernate.hbm2ddl.auto", "update"); // automatic creation of ddl (all tables) in the database
 		properties.put("hibernate.show_sql", "true"); // Statements in databases(sql,insertion,all statements) should
 														// show
-		properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect"); // Since usin with h2Dialect
+		properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect"); // Since using with h2Dialect
 		return properties;
 	}
 
@@ -70,6 +73,7 @@ public class ApplicationContext {
 		sessionBuilder.addAnnotatedClass(User.class);
 		sessionBuilder.addAnnotatedClass(Authentication.class);
 		sessionBuilder.addAnnotatedClass(Billing.class);
+		sessionBuilder.addAnnotatedClass(Cart.class);
 		return sessionBuilder.buildSessionFactory();
 	}
 
@@ -80,7 +84,7 @@ public class ApplicationContext {
 		return transactionManager;
 	}
 
-	@Autowired // accesing @repsoritary and calling all methods inside it
+	@Autowired // Accessing @repsoritary and calling all methods inside it
 	@Bean("categoryDao")
 	public CategoryDao getCategoryDao(SessionFactory sessionFactory) {
 		return new CategoryDaoImpl(sessionFactory);
@@ -116,4 +120,9 @@ public class ApplicationContext {
 		return new BillingDaoImpl(sessionFactory);
 	}
 
+	@Autowired
+	@Bean("cartDao")
+	public CartDao getCartDao(SessionFactory sessionFactory) {
+		return new CartDaoimpl(sessionFactory);
+	}
 }
