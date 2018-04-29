@@ -1,5 +1,7 @@
 package com.niit.ZealTechBackEnd.Model;
 
+import java.util.UUID;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -16,6 +18,11 @@ public class CartItems {
 	@Id
 	private String cartItemsId;
 	private double CartItemsPrice;
+
+	public CartItems() {
+		// TODO Auto-generated constructor stub
+		this.cartItemsId = "CARTITEM" + UUID.randomUUID().toString().substring(40).toUpperCase();
+	}
 
 	@ManyToOne
 	@JoinColumn(name = "cartId")

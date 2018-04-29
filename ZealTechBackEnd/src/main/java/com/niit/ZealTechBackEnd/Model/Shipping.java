@@ -1,5 +1,7 @@
 package com.niit.ZealTechBackEnd.Model;
 
+import java.util.UUID;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -19,6 +21,11 @@ public class Shipping {
 	private String shippingAddress;
 	private String shippingPh_no;
 	private String shippingCountry;
+
+	public Shipping() {
+		// TODO Auto-generated constructor stub
+		this.shippingId = "SHIP" + UUID.randomUUID().toString().substring(40).toUpperCase();
+	}
 
 	@ManyToOne
 	@JoinColumn(name = "userid")

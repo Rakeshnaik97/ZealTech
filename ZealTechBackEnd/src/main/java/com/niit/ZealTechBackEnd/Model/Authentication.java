@@ -1,5 +1,7 @@
 package com.niit.ZealTechBackEnd.Model;
 
+import java.util.UUID;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -15,6 +17,12 @@ public class Authentication {
 	private String roleName = "ROLE_USER";
 	private String UserName;
 
+	  public Authentication() {
+		
+		  // TODO Auto-generated constructor stub
+	  this.roleId="ROLE"+UUID.randomUUID().toString().substring(40).toUpperCase();
+		
+	}
 	public String getRoleId() {
 		return roleId;
 	}
