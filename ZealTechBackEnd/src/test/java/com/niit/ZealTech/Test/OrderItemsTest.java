@@ -12,13 +12,13 @@ import com.niit.ZealTechBackEnd.Model.OrderItems;
 public class OrderItemsTest {
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-		context.scan("com.nit.*");
+		context.scan("com.niit.*");
 		context.refresh();
-
-		OrderItems orderItems = (OrderItems) context.getBean("orderItems");
-		OrderItemsDao orderItemsDao = (OrderItemsDao) context.getBean("orderItemsDao");
 		Order order = (Order) context.getBean("order");
 		OrderDao orderDao = (OrderDao) context.getBean("orderDao");
+		OrderItems orderItems = (OrderItems) context.getBean("orderItems");
+		OrderItemsDao orderItemsDao = (OrderItemsDao) context.getBean("orderItemsDao");
+		
 
 		orderItems.setOrderItemsId("OI101");
 		orderItems.setOrderProductId("productId");

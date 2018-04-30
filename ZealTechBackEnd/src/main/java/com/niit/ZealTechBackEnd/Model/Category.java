@@ -19,7 +19,7 @@ public class Category {
 
 	public Category() {
 		// TODO Auto-generated constructor stub
-		this.catId = "CAT" + UUID.randomUUID().toString().substring(40).toUpperCase();
+		this.catId = "CAT" + UUID.randomUUID().toString().substring(30).toUpperCase();
 	}
 
 	@OneToMany(mappedBy = "category")

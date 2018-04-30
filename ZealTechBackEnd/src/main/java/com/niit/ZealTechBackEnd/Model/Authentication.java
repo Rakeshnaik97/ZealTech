@@ -19,9 +19,8 @@ public class Authentication {
 
 	  public Authentication() {
 		
-		  // TODO Auto-generated constructor stub
-	  this.roleId="ROLE"+UUID.randomUUID().toString().substring(40).toUpperCase();
-		
+		  this.roleId = "AUTH" + UUID.randomUUID().toString().substring(30).toUpperCase();
+
 	}
 	public String getRoleId() {
 		return roleId;

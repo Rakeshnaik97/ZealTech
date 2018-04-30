@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
 @Entity
-@Table
+@Table(name="Orders")
 @Component
 public class Order {
 
@@ -25,7 +25,7 @@ public class Order {
 
 	public Order() {
 		// TODO Auto-generated constructor stub
-		this.orderId = "ORDER" + UUID.randomUUID().toString().substring(40).toUpperCase();
+		this.orderId = "ORDER" + UUID.randomUUID().toString().substring(30).toUpperCase();
 	}
 
 	@OneToOne

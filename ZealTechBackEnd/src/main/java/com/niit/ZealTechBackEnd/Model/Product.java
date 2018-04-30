@@ -24,7 +24,7 @@ public class Product {
 
 	public Product() {
 		// TODO Auto-generated constructor stub
-		this.productId = "PROD" + UUID.randomUUID().toString().substring(40).toUpperCase();
+		this.productId = "PROD" + UUID.randomUUID().toString().substring(30).toUpperCase();
 	}
 
 	@ManyToOne

@@ -20,7 +20,7 @@ public class OrderItems {
 
 	public OrderItems() {
 		// TODO Auto-generated constructor stub
-		this.orderItemsId = "ORDITM" + UUID.randomUUID().toString().substring(40).toUpperCase();
+		this.orderItemsId = "ORDITM" + UUID.randomUUID().toString().substring(30).toUpperCase();
 	}
 
 	@ManyToOne

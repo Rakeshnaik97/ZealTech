@@ -22,7 +22,7 @@ public class Billing {
 	private String billingCountry;
 
 	public Billing() {
-		this.billingId = "BILL" + UUID.randomUUID().toString().substring(40).toUpperCase();
+		this.billingId = "BILL" + UUID.randomUUID().toString().substring(30).toUpperCase();
 		// TODO Auto-generated constructor stub
 	}
 

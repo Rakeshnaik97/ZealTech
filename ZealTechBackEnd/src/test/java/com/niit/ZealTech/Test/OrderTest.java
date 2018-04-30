@@ -83,7 +83,6 @@ public class OrderTest {
 			System.out.println(order.getOrderId());
 			System.out.println(order.getOrderDate());
 			System.out.println(order.getOrderTime());
-			System.out.println(order.getOrderItems());
 			System.out.println(order.getOrderGrandTotal());
 			System.out.println(order.getUser().getUserId());
 			System.out.println(order.getBilling().getBillingId());
@@ -95,7 +94,6 @@ public class OrderTest {
 			System.out.println(o.getOrderId());
 			System.out.println(o.getOrderDate());
 			System.out.println(o.getOrderTime());
-			System.out.println(o.getOrderItems());
 			System.out.println(o.getOrderGrandTotal());
 			System.out.println(o.getUser().getUserId());
 			System.out.println(o.getBilling().getBillingId());

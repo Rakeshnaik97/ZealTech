@@ -21,7 +21,7 @@ public class Cart {
 
 	public Cart() {
 
-		this.cartId = "CART" + UUID.randomUUID().toString().substring(40).toUpperCase();
+		this.cartId = "CART" + UUID.randomUUID().toString().substring(30).toUpperCase();
 		// TODO Auto-generated constructor stub
 	}
 

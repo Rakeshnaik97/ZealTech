@@ -24,7 +24,7 @@ public class User {
 
 	public User() {
 		// TODO Auto-generated constructor stub
-		this.userId = "USER" + UUID.randomUUID().toString().substring(40).toUpperCase();
+		this.userId = "USER" + UUID.randomUUID().toString().substring(30).toUpperCase();
 	}
 
 	@OneToOne

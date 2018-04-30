@@ -23,7 +23,7 @@ public class Supplier {
 
 	public Supplier() {
 		// TODO Auto-generated constructor stub
-		this.supplierId = "SUPP" + UUID.randomUUID().toString().substring(40).toUpperCase();
+		this.supplierId = "SUPP" + UUID.randomUUID().toString().substring(30).toUpperCase();
 	}
 
 	@OneToMany(mappedBy = "supplier")

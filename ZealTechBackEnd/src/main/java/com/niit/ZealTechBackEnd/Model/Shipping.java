@@ -24,11 +24,11 @@ public class Shipping {
 
 	public Shipping() {
 		// TODO Auto-generated constructor stub
-		this.shippingId = "SHIP" + UUID.randomUUID().toString().substring(40).toUpperCase();
+		this.shippingId = "SHIP" + UUID.randomUUID().toString().substring(30).toUpperCase();
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "userid")
+	@JoinColumn(name = "userId")
 	private User user;
 
 	@OneToOne

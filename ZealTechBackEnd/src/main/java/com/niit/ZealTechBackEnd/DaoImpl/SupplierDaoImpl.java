@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.ZealTechBackEnd.Dao.SupplierDao;
-import com.niit.ZealTechBackEnd.Model.Category;
 import com.niit.ZealTechBackEnd.Model.Supplier;
 
 @Transactional
@@ -27,21 +26,18 @@ public class SupplierDaoImpl implements SupplierDao {
 		this.sessionFactory = sessionFactory;
 	}
 
-	
 	public boolean saveorupdateSupplier(Supplier supplier) {
 		// TODO Auto-generated method stub
 		sessionFactory.getCurrentSession().saveOrUpdate(supplier);
 		return true;
 	}
 
-	
 	public boolean deleteSupplier(Supplier supplier) {
 		// TODO Auto-generated method stub
 		sessionFactory.getCurrentSession().delete(supplier);
 		return true;
 	}
 
-	
 	public Supplier getSupplier(String SupplierId) {
 		// TODO Auto-generated method stub
 		String s = "From Supplier Where SupplierId='" + SupplierId + "'";
@@ -56,10 +52,10 @@ public class SupplierDaoImpl implements SupplierDao {
 		}
 	}
 
-	
 	public List<Supplier> list() {
 		// TODO Auto-generated method stub
-		List<Supplier> supplier = (List<Supplier>) sessionFactory.getCurrentSession().createCriteria(Supplier.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+		List<Supplier> supplier = (List<Supplier>) sessionFactory.getCurrentSession().createCriteria(Supplier.class)
+				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
 		return supplier;
 
 	}

@@ -21,7 +21,7 @@ public class CartItems {
 
 	public CartItems() {
 		// TODO Auto-generated constructor stub
-		this.cartItemsId = "CARTITEM" + UUID.randomUUID().toString().substring(40).toUpperCase();
+		this.cartItemsId = "CARTITEM" + UUID.randomUUID().toString().substring(30).toUpperCase();
 	}
 
 	@ManyToOne
