@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.niit.ZealTechBackEnd.Dao.CartItemsDao;
 import com.niit.ZealTechBackEnd.Dao.CategoryDao;
 import com.niit.ZealTechBackEnd.Dao.ProductDao;
 import com.niit.ZealTechBackEnd.Dao.SupplierDao;
+import com.niit.ZealTechBackEnd.Model.CartItems;
 import com.niit.ZealTechBackEnd.Model.Category;
 import com.niit.ZealTechBackEnd.Model.Product;
 import com.niit.ZealTechBackEnd.Model.Supplier;
@@ -22,6 +24,8 @@ public class ProductTest {
 		CategoryDao catDao = (CategoryDao) ctx.getBean("categoryDao");
 		Supplier sup = (Supplier) ctx.getBean("supplier");
 		SupplierDao supDao = (SupplierDao) ctx.getBean("supplierDao");
+		CartItems cartItems = (CartItems) ctx.getBean("cartItems");
+		CartItemsDao cartItemsDao = (CartItemsDao) ctx.getBean("cartItemsDao");
 
 		pro.setProductId("P101");
 		pro.setProductName("Product1");
@@ -34,6 +38,9 @@ public class ProductTest {
 
 		sup = supDao.getSupplier("S101");
 		pro.setSupplier(sup);
+
+		cartItems = cartItemsDao.getCartItems("CTI101");
+		pro.setCartItems(cartItems);
 
 		proDao.saveorupdateProduct(pro); // to save the values in the product Table
 
@@ -54,6 +61,9 @@ public class ProductTest {
 
 		sup = supDao.getSupplier("S102");
 		pro.setSupplier(sup);
+
+		cartItems = cartItemsDao.getCartItems("CTI102");
+		pro.setCartItems(cartItems);
 
 		proDao.saveorupdateProduct(pro); // to save the values in the product Table
 
@@ -82,6 +92,7 @@ public class ProductTest {
 			System.out.println(pro.getProductQuantity());
 			System.out.println(pro.getCategory().getCatId());
 			System.out.println(pro.getSupplier().getSupplierId());
+			System.out.println(pro.getCartItems().getCartItemsId());
 		}
 
 		List<Product> plist = proDao.list();
@@ -93,6 +104,7 @@ public class ProductTest {
 			System.out.println(p.getProductQuantity());
 			System.out.println(p.getCategory().getCatId());
 			System.out.println(p.getSupplier().getSupplierId());
+			System.out.println(p.getCartItems().getCartItemsId());
 		}
 	}
 }

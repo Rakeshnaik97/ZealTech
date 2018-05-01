@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.niit.ZealTechBackEnd.Dao.BillingDao;
-import com.niit.ZealTechBackEnd.Dao.ProductDao;
+import com.niit.ZealTechBackEnd.Dao.OrderDao;
 import com.niit.ZealTechBackEnd.Dao.UserDao;
 import com.niit.ZealTechBackEnd.Model.Billing;
-import com.niit.ZealTechBackEnd.Model.Product;
+import com.niit.ZealTechBackEnd.Model.Order;
 import com.niit.ZealTechBackEnd.Model.User;
 
 public class BillingTest {
@@ -21,6 +21,8 @@ public class BillingTest {
 		BillingDao billingDao = (BillingDao) context.getBean("billingDao");
 		User user = ((User) context.getBean("user")); // creating Objects to set and fetch the UserId
 		UserDao userDao = ((UserDao) context.getBean("userDao"));
+		Order order = (Order) context.getBean("order");
+		OrderDao orderDao = (OrderDao) context.getBean("orderDao");
 
 		bill.setBillingId("B101");
 		bill.setBillingName("Rakesh");
@@ -29,6 +31,8 @@ public class BillingTest {
 		bill.setBillingCountry("India");
 		user = userDao.getUser("U101"); // setting Value For user for Unique UserId
 		bill.setUser(user);
+		order = orderDao.getOrder("O101");
+		bill.setOrder(order);
 		billingDao.saveorupdateBilling(bill);
 		if (billingDao.saveorupdateBilling(bill) == true) {
 			System.out.println("Bill Added Successfully");
@@ -43,6 +47,8 @@ public class BillingTest {
 		bill.setBillingCountry("India");
 		user = userDao.getUser("U102");
 		bill.setUser(user);
+		order = orderDao.getOrder("O102");
+		bill.setOrder(order);
 		billingDao.saveorupdateBilling(bill);
 		if (billingDao.saveorupdateBilling(bill) == true) {
 			System.out.println("Bill Added Successfully");
