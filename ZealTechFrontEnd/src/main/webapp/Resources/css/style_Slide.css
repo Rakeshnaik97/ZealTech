@@ -1,0 +1,38 @@
+
+body{
+	margin:0;
+	padding:0;
+	
+ }
+
+
+
+/*--causel--*/
+.carousel-indicators {
+    position: absolute;
+    bottom: -45px;
+    left: 48%;
+    z-index: 15;
+	width: auto;
+    padding-left: 0;
+    margin: 0;
+    text-align: center;
+    list-style: none;
+}
+
+
+.carousel-indicators li {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin:0 6px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: #029241;
+    border: none;
+    border-radius: 10px;
+}
+.carousel-indicators .active {
+    background-color: #FAB005;
+    margin: 0 6px;
+}
