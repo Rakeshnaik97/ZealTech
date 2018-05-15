@@ -49,4 +49,22 @@ public class SupplierController {
 		mv.addObject("suppliers", suplist);
 		return mv;
 	}
+	
+	@RequestMapping("/deleteSupplier/{supplierId}")
+	public ModelAndView deletesupplier(@PathVariable("supplierId") String supplierId) {
+		ModelAndView mv = new ModelAndView("redirect:/Supplier");
+		supplier = supplierDao.getSupplier(supplierId);
+		mv.addObject("supplier", supplier);
+		List<Supplier> suplist = supplierDao.list();
+		mv.addObject("suppliers", suplist);
+		if(supplierDao.deleteSupplier(supplier)==true)
+		{
+			mv.addObject("msg", "Supplier Deleted");
+		}
+		else
+		{
+			mv.addObject("msg", "Supplier Not Deleted");
+		}
+		return mv;
+	}
 }

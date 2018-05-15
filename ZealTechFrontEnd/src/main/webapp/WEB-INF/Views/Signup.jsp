@@ -7,6 +7,16 @@
 <title>Zeal Tech | Signup</title>
 </head>
 <body>
+	<!-- breadcrumbs -->
+	<div class="breadcrumb_dress">
+		<div class="container">
+			<ul>
+				<li><a href="<c:url value="/"/>"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> <i>|</i></li>
+				<li>Signup</li>
+			</ul>
+		</div>
+	</div>
+	<!-- //breadcrumbs --> 
 <h1>Sign Up</h1>
 <form action="#" method="post">
 <lable>Username:</lable>
