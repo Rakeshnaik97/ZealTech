@@ -8,8 +8,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table
@@ -21,6 +23,26 @@ public class Product {
 	private String productDescription;
 	private String productQuantity;
 	private String productPrice;
+	// For Multipart FileUpload
+	private String imageName;
+	@Transient
+	private MultipartFile pimg;
+
+	public MultipartFile getPimg() {
+		return pimg;
+	}
+
+	public void setPimg(MultipartFile pimg) {
+		this.pimg = pimg;
+	}
+
+	public String getImageName() {
+		return imageName;
+	}
+
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
+	}
 
 	public Product() {
 		// TODO Auto-generated constructor stub
