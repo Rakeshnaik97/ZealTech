@@ -40,7 +40,7 @@ public class ProductTest {
 		pro.setSupplier(sup);
 
 		cartItems = cartItemsDao.getCartItems("CTI101");
-		pro.setCartItems(cartItems);
+//		pro.setCartItems(cartItems);
 
 		proDao.saveorupdateProduct(pro); // to save the values in the product Table
 
@@ -63,7 +63,7 @@ public class ProductTest {
 		pro.setSupplier(sup);
 
 		cartItems = cartItemsDao.getCartItems("CTI102");
-		pro.setCartItems(cartItems);
+//		pro.setCartItems(cartItems);
 
 		proDao.saveorupdateProduct(pro); // to save the values in the product Table
 
@@ -92,7 +92,7 @@ public class ProductTest {
 			System.out.println(pro.getProductQuantity());
 			System.out.println(pro.getCategory().getCatId());
 			System.out.println(pro.getSupplier().getSupplierId());
-			System.out.println(pro.getCartItems().getCartItemsId());
+//			System.out.println(pro.getCartItems().getCartItemsId());
 		}
 
 		List<Product> plist = proDao.list();
@@ -104,7 +104,7 @@ public class ProductTest {
 			System.out.println(p.getProductQuantity());
 			System.out.println(p.getCategory().getCatId());
 			System.out.println(p.getSupplier().getSupplierId());
-			System.out.println(p.getCartItems().getCartItemsId());
+//			System.out.println(p.getCartItems().getCartItemsId());
 		}
 	}
 }

@@ -34,7 +34,7 @@ public class ShippingTest {
 		user = userDao.getUser("U101");
 		shipping.setUser(user);
 		order = orderDao.getOrder("O101");
-		shipping.setOrder(order);
+//		shipping.setOrder(order);
 		if (shippingDao.saveorupdateShipping(shipping) == true) {
 			System.out.println("Shipping Added Successful");
 		} else {
@@ -49,7 +49,7 @@ public class ShippingTest {
 		user = userDao.getUser("U102");
 		shipping.setUser(user);
 		order = orderDao.getOrder("O102");
-		shipping.setOrder(order);
+//		shipping.setOrder(order);
 		if (shippingDao.saveorupdateShipping(shipping) == true) {
 			System.out.println("Shipping Added Successful");
 		} else {
@@ -73,7 +73,7 @@ public class ShippingTest {
 			System.out.println(shipping.getShippingPh_no());
 			System.out.println(shipping.getShippingAddress());
 			System.out.println(shipping.getShippingCountry());
-			System.out.println(shipping.getOrder().getOrderId());
+//			System.out.println(shipping.getOrder().getOrderId());
 			System.out.println(shipping.getUser().getUserId());
 		}
 
@@ -84,7 +84,7 @@ public class ShippingTest {
 			System.out.println(s.getShippingPh_no());
 			System.out.println(s.getShippingAddress());
 			System.out.println(s.getShippingCountry());
-			System.out.println(s.getOrder().getOrderId());
+//			System.out.println(s.getOrder().getOrderId());
 			System.out.println(s.getUser().getUserId());
 		}
 

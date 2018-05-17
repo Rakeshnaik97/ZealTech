@@ -20,9 +20,9 @@ public class UserController {
 	@Autowired
 	UserDao userDao;
 
-	@RequestMapping("/User")
+	@RequestMapping("/SignUp")
 	public ModelAndView User() {
-		ModelAndView mv = new ModelAndView("User");
+		ModelAndView mv = new ModelAndView("Signup");
 		List<User> ulist = userDao.list();
 		mv.addObject("user", new User());
 		mv.addObject("users", ulist);
@@ -31,7 +31,7 @@ public class UserController {
 
 	@RequestMapping("/addUser")
 	public ModelAndView adduser(@ModelAttribute("user") User user) {
-		ModelAndView mv = new ModelAndView("redirect:/User");
+		ModelAndView mv = new ModelAndView("redirect:/Login");
 		if (userDao.saveorupdateUser(user) == true) {
 			mv.addObject("msg1", "User Added Successfully");
 		} else {

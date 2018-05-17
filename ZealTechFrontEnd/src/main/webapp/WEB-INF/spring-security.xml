@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:webflow-config="http://www.springframework.org/schema/webflow-config"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+      http://www.springframework.org/schema/beans/spring-beans.xsd  
+      http://www.springframework.org/schema/security 
+       http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<security:http auto-config="true" use-expressions="true">
+		<security:csrf disabled="true"/> 
+<!-- 		 csrf=cross site Request forgery -->
+		<security:intercept-url pattern="/" access="permitAll" />
+<!-- 		<security:intercept-url pattern="/allproducts" access="permitAll" /> -->
+		<security:intercept-url pattern="/SignUp" access="permitAll" />
+		<security:form-login login-page="/Login"
+			authentication-failure-url="/Login?error" 
+			login-processing-url="/j_spring_security_check"
+			default-target-url="/" 
+			username-parameter="j_username"
+			password-parameter="j_password" />
+		<security:logout logout-success-url="/Login?Logout"
+			logout-url="/j_spring_security_Logout" />
+	</security:http>
+
+
+	<security:authentication-manager>
+		<security:authentication-provider>
+
+			<security:jdbc-user-service
+				data-source-ref="dataSource"
+				authorities-by-username-query="SELECT username, roleName FROM Authentication WHERE UserName =?"
+				users-by-username-query="SELECT userEmailId, userPassword, 'true' as enabled from User where userEmailId=? limit 1"/>
+					
+		</security:authentication-provider>
+	</security:authentication-manager>
+</beans>
+<!--      check For correction for authorities-by-username-query => in Authentication  -->
+<!--      check For correction for Users-By-UserName-query => in User -->
+    
+

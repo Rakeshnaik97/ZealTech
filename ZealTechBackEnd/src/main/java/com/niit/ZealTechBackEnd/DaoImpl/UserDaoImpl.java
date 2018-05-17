@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.ZealTechBackEnd.Dao.UserDao;
+import com.niit.ZealTechBackEnd.Model.Authentication;
 import com.niit.ZealTechBackEnd.Model.Category;
 import com.niit.ZealTechBackEnd.Model.User;
 
@@ -30,6 +31,14 @@ public class UserDaoImpl implements UserDao {
 	
 	public boolean saveorupdateUser(User user) {
 		// TODO Auto-generated method stub
+		Authentication auth=new Authentication();
+		auth.setUserName(user.getUserEmailId());
+		
+//		user.getBilling().setBillingPh_no(user.getUserPh_no());
+//		user.getBilling().setUser(user);
+		sessionFactory.getCurrentSession().saveOrUpdate(user.getCart());
+		sessionFactory.getCurrentSession().saveOrUpdate(user.getBilling());
+		sessionFactory.getCurrentSession().saveOrUpdate(auth);
 		sessionFactory.getCurrentSession().saveOrUpdate(user);
 		return true;
 	}
@@ -61,6 +70,22 @@ public class UserDaoImpl implements UserDao {
 		// TODO Auto-generated method stub
 		List<User> user = (List<User>) sessionFactory.getCurrentSession().createCriteria(User.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
 		return user;
+	}
+
+
+	@Override
+	public User isValid(String umail, String pwd) {
+		// TODO Auto-generated method stub
+		String s = "From User Where UserEmailId ='" + umail +"' and pwd='" +pwd+ "'";
+		Query q = sessionFactory.getCurrentSession().createQuery(s);
+		List<User> list = (List<User>) q.list();
+		if (list == null || list.isEmpty()) {
+			System.out.println("User List Not Found");
+			return null;
+		} else {
+//			System.out.println("User list");
+			return list.get(0);
+		}
 	}
 
 }

@@ -5,25 +5,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>AddNewProducts | Zeal Tech</title>
 <!-- Adding Urls For Accessing Resources -->
-<c:url value="/Resources/images" var="images"/>
-<c:url value="/Resources/fonts" var="fonts"/>
-<c:url value="/Resources/css" var="css"/>
-<c:url value="/Resources/js" var="js"/>
-<c:url value="/Resources/themes" var="themes"/>
-<link href="${css}/bootstrap-newproducts.css" rel="stylesheet" type="text/css" media="all" />
+<c:url value="/Resources/New Products" var="ns"/>
+<%-- <c:url value="/Resources/fonts" var="fonts"/> --%>
+<link href="${ns}/css/bootstrap-newproducts.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="${js}/jquery.min-newproducts.js"></script>
+<script src="${ns}/js/jquery.min-newproducts.js"></script>
 <!-- Custom Theme files -->
 <!--theme-style-->
-<link href="${css}/style-newproducts.css" rel="stylesheet" type="text/css" media="all" />	
+<link href="${ns}/css/style-newproducts.css" rel="stylesheet" type="text/css" media="all" />	
 <!--//theme-style-->
 <!-- start menu -->
-<script type="text/javascript" src="${js}/megamenu-newproducts.js"></script>
+<script type="text/javascript" src="${ns}/js/megamenu-newproducts.js"></script>
 <!--//slider-script-->
-<script src="${js}/easyResponsiveTabs-newproducts.js" type="text/javascript"></script>
+<script src="${ns}/js/easyResponsiveTabs-newproducts.js" type="text/javascript"></script>
 		    <script type="text/javascript">
 			    $(document).ready(function () {
 			        $('#horizontalTab').easyResponsiveTabs({
@@ -33,8 +29,14 @@
 			        });
 			    });
 				
-</script>
+</script>	
 </head>
+<body> 
+<!--  <div class="typo codess"> -->
+<!-- 		<div class="container">  -->
+<!-- 			<h3 class="agileits-title">New products</h3> -->
+<!-- 			</div> -->
+<!-- 			</div> -->
 
 		<div class="sap_tabs">
 			<label class="line"> </label>
@@ -51,7 +53,7 @@
 									<div class="tab_img">
 									  <div class="img-top simpleCart_shelfItem">
 										
-					   		  			   <img src="images/pi2.jpg" class="img-responsive" alt=""/>
+					   		  			   <img src="${ns}/images/pi2.jpg" class="img-responsive" alt=""/>
 											    <div class="tab_desc">
 												 <ul class="round-top">
 												 	<li><a href="#"><i> </i></a></li>
@@ -73,7 +75,7 @@
 										</div>
 										<div class="img-top simpleCart_shelfItem">
 										  
-					   		  			   <img src="images/pi3.jpg" class="img-responsive" alt=""/>
+					   		  			   <img src="${ns}/images/pi3.jpg" class="img-responsive" alt=""/>
 											<div class="tab_desc">
 												 <ul class="round-top">
 												 	<li><a href="#"><i> </i></a></li>
@@ -99,7 +101,7 @@
 											 </div>
 											  <div class="img-top simpleCart_shelfItem">
 										  
-					   		  			   <img src="images/pi4.jpg" class="img-responsive" alt=""/>
+					   		  			   <img src="${ns}/images/pi4.jpg" class="img-responsive" alt=""/>
 											<div class="tab_desc">
 												 <ul class="round-top">
 												 	<li><a href="#"><i> </i></a></li>
@@ -130,7 +132,7 @@
 									<div class="tab_img">
 									  <div class="img-top simpleCart_shelfItem">
 										
-					   		  			   <img src="images/pi9.jpg" class="img-responsive" alt=""/>
+					   		  			   <img src="${ns}/images/pi9.jpg" class="img-responsive" alt=""/>
 											
 								              <div class="tab_desc">
 												 <ul class="round-top">
@@ -154,7 +156,7 @@
 										</div>
 										<div class="img-top simpleCart_shelfItem">
 										  
-					   		  			   <img src="images/pi8.jpg" class="img-responsive" alt=""/>
+					   		  			   <img src="${ns}/images/pi8.jpg" class="img-responsive" alt=""/>
 											<div class="tab_desc">
 												 <ul class="round-top">
 												 	<li><a href="#"><i> </i></a></li>
@@ -178,7 +180,7 @@
 											 </div>
 											  <div class="img-top simpleCart_shelfItem">
 										  
-					   		  			   <img src="images/pi10.jpg" class="img-responsive" alt=""/>
+					   		  			   <img src="${ns}/images/pi10.jpg" class="img-responsive" alt=""/>
 											<div class="tab_desc">
 												 <ul class="round-top">
 												 	<li><a href="#"><i> </i></a></li>
@@ -208,7 +210,7 @@
 									<div class="tab_img">
 									  <div class="img-top simpleCart_shelfItem">
 										
-					   		  			   <img src="images/pi5.jpg" class="img-responsive" alt=""/>
+					   		  			   <img src="${ns}/images/pi5.jpg" class="img-responsive" alt=""/>
 											
 								              <div class="tab_desc">
 												 <ul class="round-top">
@@ -232,7 +234,7 @@
 										</div>
 										<div class="img-top simpleCart_shelfItem">
 										  
-					   		  			   <img src="images/pi6.jpg" class="img-responsive" alt=""/>
+					   		  			   <img src="${ns}/images/pi6.jpg" class="img-responsive" alt=""/>
 											<div class="tab_desc">
 												 <ul class="round-top">
 												 	<li><a href="#"><i> </i></a></li>
@@ -257,7 +259,7 @@
 											 </div>
 											  <div class="img-top simpleCart_shelfItem">
 										  
-					   		  			   <img src="images/pi7.jpg" class="img-responsive" alt=""/>
+					   		  			   <img src="${ns}/images/pi7.jpg" class="img-responsive" alt=""/>
 											<div class="tab_desc">
 												 <ul class="round-top">
 												 	<li><a href="#"><i> </i></a></li>
@@ -294,7 +296,7 @@
 			<div class="container">
 				<p>Design is a funny word. Some people think 
 design means how it looks. But of course, if you dig deeper 
-it’s really how it works.</p>
+its really how it works.</p>
 <label class="line1"> </label>
 <span>Steve Jobs</span>
 			</div>

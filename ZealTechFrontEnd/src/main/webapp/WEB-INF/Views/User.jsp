@@ -3,7 +3,7 @@
 <%@taglib prefix="c1" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@include file="Header1.jsp" %>
+<%--     <%@include file="Header1.jsp" %> --%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,31 +32,31 @@
     margin-top: -50;
     margin-right: 500px;
     margin-left: 500px;
-    margin-bottom: 30px;
+    margin-bottom: 30px;border: 1px solid black;
 ">
 <legend></legend>
-<label>User ID:</lable>
+<label>User ID:</label>
 <form:input type="text" name="userid" path="userId"/>
 <br>
 <br>
-<lable>User Name:</lable>
+<label>User Name:</label>
 <form:input type="text" name="username" path="userName"/>
 <br>
 <br>
-<label>Address:</lable>
+<label>Address:</label>
 <form:textarea rows="5" cols="25" path="useraddress"/>
 </textarea>
 <br>
 <br>
-<lable>Phone:</lable>
+<label>Phone:</label>
 <form:input type="tel" name="tel" path="userPh_no"/>
 <br>
 <br>
-<lable>Email Id:</lable>
+<label>Email Id:</label>
 <form:input type="email" name="email" path="userEmailId"/>
 <br>
 <br>
-<lable>Password:</lable>
+<label>Password:</label>
 <form:input type="text" name="password" path="userPassword"/>
 <br>
 <br>

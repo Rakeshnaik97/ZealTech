@@ -31,22 +31,22 @@
 <fieldset style="
     margin-top: -50;
     margin-right: 500px;
-    margin-left: 500px;" >
+    margin-left: 500px;border: 1px solid black;" >
 <legend></legend>
-<lable>Supplier ID:</lable>
+<label>Supplier ID:</label>
 <form:input type="text" name="supplierid" path="supplierId"/>
 <br>
 <br>
-<lable>Supplier Name:</lable>
+<label>Supplier Name:</label>
 <form:input type="text" name="suppliername" path="supplierName"/>
 <br>
 <br>
-<lable>Address:</lable>
+<label>Address:</label>
 <form:textarea rows="4" cols="25" path="supplierAddress"/>
 </textarea>
 <br>
 <br>
-<lable>PhoneNO:</lable>
+<label>PhoneNO:</label>
 <form:input type="tel" name="tel" path="supplierPh_no"/>
 <br>
 <br>

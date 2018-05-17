@@ -5,10 +5,12 @@ import java.util.List;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.niit.ZealTechBackEnd.Dao.BillingDao;
+import com.niit.ZealTechBackEnd.Dao.CartDao;
 import com.niit.ZealTechBackEnd.Dao.OrderDao;
 import com.niit.ZealTechBackEnd.Dao.ShippingDao;
 import com.niit.ZealTechBackEnd.Dao.UserDao;
 import com.niit.ZealTechBackEnd.Model.Billing;
+import com.niit.ZealTechBackEnd.Model.Cart;
 import com.niit.ZealTechBackEnd.Model.Order;
 import com.niit.ZealTechBackEnd.Model.Shipping;
 import com.niit.ZealTechBackEnd.Model.User;
@@ -27,6 +29,8 @@ public class UserTest {
 		OrderDao orderDao = (OrderDao) ctx.getBean("orderDao");
 		Shipping shipping = ((Shipping) ctx.getBean("shipping"));
 		ShippingDao shippingDao = ((ShippingDao) ctx.getBean("shippingDao"));
+		Cart cart = (Cart) ctx.getBean("cart");
+		CartDao cartDao = (CartDao) ctx.getBean("cartDao");
 
 		user.setUserId("U101");
 		user.setUserName("Rakesh");
@@ -37,9 +41,11 @@ public class UserTest {
 		bill = billingDao.getBilling("B101");
 		user.setBilling(bill);
 		order = orderDao.getOrder("O101");
-		user.setOrder(order);
+//		user.setOrder(order);
 		shipping = shippingDao.getShipping("SHIP101");
-		user.setShipping(shipping);
+//		user.setShipping(shipping);
+		cart = cartDao.getCart("CT101");
+		user.setCart(cart);
 		if (userDao.saveorupdateUser(user) == true) {
 			System.out.println("User Added Successfully");
 		} else {
@@ -55,9 +61,11 @@ public class UserTest {
 		bill = billingDao.getBilling("B102");
 		user.setBilling(bill);
 		order = orderDao.getOrder("O102");
-		user.setOrder(order);
+//		user.setOrder(order);
 		shipping = shippingDao.getShipping("SHIP102");
-		user.setShipping(shipping);
+//		user.setShipping(shipping);
+		cart = cartDao.getCart("CT102");
+		user.setCart(cart);
 		if (userDao.saveorupdateUser(user) == true) {
 			System.out.println("User Added Successfully");
 		} else {
@@ -82,9 +90,10 @@ public class UserTest {
 			System.out.println(user.getUserPh_no());
 			System.out.println(user.getUseraddress());
 			System.out.println(user.getUserEmailId());
-			System.out.println(user.getOrder().getOrderId());
-			System.out.println(user.getShipping().getShippingId());
+//			System.out.println(user.getOrder().getOrderId());
+//			System.out.println(user.getShipping().getShippingId());
 			System.out.println(user.getBilling().getBillingId());
+			System.out.println(user.getCart().getCartId());
 		}
 
 		List<User> ulist = userDao.list();
@@ -96,8 +105,9 @@ public class UserTest {
 			System.out.println(u.getUseraddress());
 			System.out.println(u.getUserEmailId());
 			System.out.println(u.getBilling().getBillingId());
-			System.out.println(u.getOrder().getOrderId());
-			System.out.println(u.getShipping().getShippingId());
+//			System.out.println(u.getOrder().getOrderId());
+//			System.out.println(u.getShipping().getShippingId());
+			System.out.println(u.getCart().getCartId());
 		}
 
 	}

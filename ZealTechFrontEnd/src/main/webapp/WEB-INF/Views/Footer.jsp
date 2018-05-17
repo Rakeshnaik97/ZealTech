@@ -72,49 +72,49 @@
 			<div class="sliderfig">
 				<ul id="flexiselDemo1">
 					<li>
-						<img src="${images}/Niit/Laptop Logo/Hp.jpg" alt=" " class="img-responsive" />
+						<img src="${images}\\Niit\\Laptop Logo\\hp.jpg" alt="1 " class="img-responsive" />
 					</li>
 					<li>
-						<img src="${images}/tb1.jpg" alt=" " class="img-responsive" />
+						<img src="${images}/tb1.jpg" alt=" 2" class="img-responsive" />
 					</li>
 					<li>
 						<img src="${images}/Niit/Laptop Logo/Microsoft.jpg" alt=" " class="img-responsive" />
 					</li>
 					<li>
-						<img src="${images}/tb2.jpg" alt=" " class="img-responsive" />
+						<img src="${images}/tb2.jpg" alt=" 3" class="img-responsive" />
 					</li>
 					<li>
-						<img src="${images}/tb3.jpg" alt=" " class="img-responsive" />
+						<img src="${images}/tb3.jpg" alt=" 4" class="img-responsive" />
 					</li>
 					<li>
-						<img src="${images}/tb4.jpg" alt=" " class="img-responsive" />
+						<img src="${images}/Niit/Mobile Logo/Asus.jpg" alt=" 5" class="img-responsive" />
 					</li>
 					<li>
-						<img src="${images}/tb5.jpg" alt=" " class="img-responsive" />
+						<img src="${images}/tb5.jpg" alt=" 6" class="img-responsive" />
 					</li>
 					<li>
-						<img src="${images}/Niit/Mobile Logo/Apple.jpg" alt=" " class="img-responsive" />
+						<img src="${images}/Niit/Mobile Logo/Apple.jpg" alt="7 " class="img-responsive" />
 					</li>
 					<li>
-						<img src="${images}/Niit/Laptop Logo/Dell.jpg" alt=" " class="img-responsive" />
+						<img src="${images}/Niit/Laptop Logo/Dell.jpg" alt="8 " class="img-responsive" />
 					</li>
 					<li>
-						<img src="${images}/Niit/Mobile Logo/Mi.jpg" alt=" " class="img-responsive" />
+						<img src="${images}/Niit/Mobile Logo/Mi.jpg" alt="9 " class="img-responsive" />
 					</li>
 					<li>
-						<img src="${images}/Niit/Mobile Logo/Asus.jpg" alt=" " class="img-responsive" />
+						<img src="${images}/Niit/Mobile Logo/Asus.jpg" alt="10 " class="img-responsive" />
 					</li>
 					<li>
-						<img src="${images}/Niit/Mobile Logo/Lenovo.jpg" alt=" " class="img-responsive" />
+						<img src="${images}/Niit/Mobile Logo/Lenovo.jpg" alt=" 11" class="img-responsive" />
 					</li>
 					<li>
-						<img src="${images}/Niit/Laptop Logo/Acer.jpg" alt=" " class="img-responsive" />
+						<img src="${images}/Niit/Laptop Logo/Acer.jpg" alt=" 12" class="img-responsive" />
 					</li>
 					<li>
-						<img src="${images}/Niit/Mobile Logo/Vivo.jpg" alt=" " class="img-responsive" />
+						<img src="${images}/Niit/Mobile Logo/Vivo.jpg" alt="13 " class="img-responsive" />
 					</li>
 					<li>
-						<img src="${images}/Niit/Mobile Logo/Oppo.jpg" alt=" " class="img-responsive" />
+						<img src="${images}/Niit/Mobile Logo/Oppo.jpg" alt=" 14" class="img-responsive" />
 					</li>
 				</ul>
 			</div>

@@ -31,9 +31,9 @@ public class Shipping {
 	@JoinColumn(name = "userId")
 	private User user;
 
-	@OneToOne
-	@JoinColumn(name = "orderId")
-	private Order order;
+//	@OneToOne
+//	@JoinColumn(name = "orderId")
+//	private Order order;
 
 	public String getShippingId() {
 		return shippingId;
@@ -83,12 +83,12 @@ public class Shipping {
 		this.user = user;
 	}
 
-	public Order getOrder() {
-		return order;
-	}
-
-	public void setOrder(Order order) {
-		this.order = order;
-	}
+//	public Order getOrder() {
+//		return order;
+//	}
+//
+//	public void setOrder(Order order) {
+//		this.order = order;
+//	}
 
 }

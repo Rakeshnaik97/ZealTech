@@ -32,7 +32,7 @@ public class BillingTest {
 		user = userDao.getUser("U101"); // setting Value For user for Unique UserId
 		bill.setUser(user);
 		order = orderDao.getOrder("O101");
-		bill.setOrder(order);
+//		bill.setOrder(order);
 		billingDao.saveorupdateBilling(bill);
 		if (billingDao.saveorupdateBilling(bill) == true) {
 			System.out.println("Bill Added Successfully");
@@ -48,7 +48,7 @@ public class BillingTest {
 		user = userDao.getUser("U102");
 		bill.setUser(user);
 		order = orderDao.getOrder("O102");
-		bill.setOrder(order);
+//		bill.setOrder(order);
 		billingDao.saveorupdateBilling(bill);
 		if (billingDao.saveorupdateBilling(bill) == true) {
 			System.out.println("Bill Added Successfully");

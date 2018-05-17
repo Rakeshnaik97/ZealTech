@@ -32,7 +32,7 @@
 			</div> 	  
 <c:url value="/addCategory" var="cat"/>
 <form:form action="${cat}" method="post" commandName="category">
-<fieldset align="center" style="margin: -40 500px 50">
+<fieldset align="center" style="margin: -40 500px 50;border: 1px solid black;">
 <legend></legend>
 <label>Category ID:</label>
 <form:input type="text" name="categoryid" path="catId" float="rigth"/>

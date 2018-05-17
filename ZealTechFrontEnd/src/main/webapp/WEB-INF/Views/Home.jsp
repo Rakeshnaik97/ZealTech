@@ -1,4 +1,6 @@
+<%@taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@taglib prefix="c" uri="http://www.springframework.org/tags" %>
+<%@taglib prefix="c1"  uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -70,7 +72,7 @@
 	<div class="header" id="home1">
 		<div class="container">
 			<div class="l_login">
-				<a href="#" data-toggle="modal" data-target="#myModal88"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+				<a href="<c:url value="/Login"/>"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
 			</div>
 			<div class="l_logo">
 				<img src="";><h1><a href="index.html">Zeal Tech<span>Spirit Of Technology</span></a></h1>
@@ -157,6 +159,8 @@
 								</div>
 							</ul>
 						</li> 
+						<c1:if test="${pageContext.request.userPrincipal.name!=null}">
+						<security:authorize access="hasRole('ROLE_ADMIN')">
 						<li class="pages"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="<c:url value="/Category"/>">Category</a></li>
@@ -164,6 +168,7 @@
 								<li><a href="<c:url value="/Product"/>">Products</a></li>
 							</ul>
 						</li>  
+						</security:authorize></c1:if>
 						<li><a href="mail.html">Contact Us</a></li>
 						<li><a href="mail.html">About us</a></li>
 					</ul>
@@ -287,49 +292,49 @@
 			<div class="sliderfig">
 				<ul id="flexiselDemo1">
 					<li>
-						<img src="${images}/Niit/Laptop Logo/Hp.jpg" alt=" " class="img-responsive" />
+						<img src="${images}\\Niit\\Laptop Logo\\hp.jpg" alt="1 " class="img-responsive" />
 					</li>
 					<li>
-						<img src="${images}/tb1.jpg" alt=" " class="img-responsive" />
+						<img src="${images}/tb1.jpg" alt=" 2" class="img-responsive" />
 					</li>
 					<li>
 						<img src="${images}/Niit/Laptop Logo/Microsoft.jpg" alt=" " class="img-responsive" />
 					</li>
 					<li>
-						<img src="${images}/tb2.jpg" alt=" " class="img-responsive" />
+						<img src="${images}/tb2.jpg" alt=" 3" class="img-responsive" />
 					</li>
 					<li>
-						<img src="${images}/tb3.jpg" alt=" " class="img-responsive" />
+						<img src="${images}/tb3.jpg" alt=" 4" class="img-responsive" />
 					</li>
 					<li>
-						<img src="${images}/tb4.jpg" alt=" " class="img-responsive" />
+						<img src="${images}/Niit/Mobile Logo/Asus.jpg" alt=" 5" class="img-responsive" />
 					</li>
 					<li>
-						<img src="${images}/tb5.jpg" alt=" " class="img-responsive" />
+						<img src="${images}/tb5.jpg" alt=" 6" class="img-responsive" />
 					</li>
 					<li>
-						<img src="${images}/Niit/Mobile Logo/Apple.jpg" alt=" " class="img-responsive" />
+						<img src="${images}/Niit/Mobile Logo/Apple.jpg" alt="7 " class="img-responsive" />
 					</li>
 					<li>
-						<img src="${images}/Niit/Laptop Logo/Dell.jpg" alt=" " class="img-responsive" />
+						<img src="${images}/Niit/Laptop Logo/Dell.jpg" alt="8 " class="img-responsive" />
 					</li>
 					<li>
-						<img src="${images}/Niit/Mobile Logo/Mi.jpg" alt=" " class="img-responsive" />
+						<img src="${images}/Niit/Mobile Logo/Mi.jpg" alt="9 " class="img-responsive" />
 					</li>
 					<li>
-						<img src="${images}/Niit/Mobile Logo/Asus.jpg" alt=" " class="img-responsive" />
+						<img src="${images}/Niit/Mobile Logo/Asus.jpg" alt="10 " class="img-responsive" />
 					</li>
 					<li>
-						<img src="${images}/Niit/Mobile Logo/Lenovo.jpg" alt=" " class="img-responsive" />
+						<img src="${images}/Niit/Mobile Logo/Lenovo.jpg" alt=" 11" class="img-responsive" />
 					</li>
 					<li>
-						<img src="${images}/Niit/Laptop Logo/Acer.jpg" alt=" " class="img-responsive" />
+						<img src="${images}/Niit/Laptop Logo/Acer.jpg" alt=" 12" class="img-responsive" />
 					</li>
 					<li>
-						<img src="${images}/Niit/Mobile Logo/Vivo.jpg" alt=" " class="img-responsive" />
+						<img src="${images}/Niit/Mobile Logo/Vivo.jpg" alt="13 " class="img-responsive" />
 					</li>
 					<li>
-						<img src="${images}/Niit/Mobile Logo/Oppo.jpg" alt=" " class="img-responsive" />
+						<img src="${images}/Niit/Mobile Logo/Oppo.jpg" alt=" 14" class="img-responsive" />
 					</li>
 				</ul>
 			</div>
@@ -417,7 +422,7 @@
 					<h3>Pages</h3>
 					<ul class="info"> 
 						<li><a href="<c:url value="/"/>">Home</a></li>
-						<li><a href="<c:url value="/Product"/>">Products</a></li>
+						<li><a href="#" >Products</a></li>
 						<li><a href="products.html">Contact Us</a></li>
 						<li><a href="products1.html">About us</a></li>
 					</ul>

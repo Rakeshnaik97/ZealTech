@@ -17,19 +17,20 @@ public class HomeController {
 							// Folder Here
 	}
 
-	@RequestMapping("/Login")
-	public String Login() {
-		return "Login"; // same as created jsp file
-	}
+//	@RequestMapping("/Signup")
+//	public String Signup() {
+//		return "Signup"; // same as created jsp file
+//	}
 
-	@RequestMapping("/Signup")
-	public String Signup() {
-		return "Signup"; // same as created jsp file
-	}
+//	@RequestMapping("/User")
+//	public String User() {
+//		return "User"; // same as created jsp file
+//	}
 
-	@RequestMapping("/Header")
-	public String Header() {
-		return "Header"; // same as created jsp file
+
+	@RequestMapping("/Header1")
+	public String Header1() {
+		return "Header1"; // same as created jsp file
 	}
 
 	@RequestMapping("/Footer")

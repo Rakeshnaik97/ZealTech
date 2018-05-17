@@ -9,6 +9,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Zeal Tech | Product</title>
+<style>
+label{
+	text-allign:left;
+	padding:20px
+}
+td,th
+{
+	text-align:center;
+}
+</style>
 </head>
 <body>
 	<!-- breadcrumbs -->
@@ -34,27 +44,27 @@
 			</div>
 			</div>
 <c:url value="/addProduct" var="pro"/>
-<form:form action="${pro}" method="post" commandName="product" enctype="multipart/form-data">
-<fieldset align="center" style="margin: -20px 520px">
+<form:form action="${pro}" method="post" commandName="product" enctype="multipart/form-data" >
+<fieldset align="center"  style="margin: -20px 450px;border: 1px solid black;">
 <legend></legend>
-<lable>Product ID:</lable>
+<label>Product ID:</label>
 <form:input type="text" name="productid" path="productId"/>
 <br>
 <br>
-<lable>Product Name:</lable>
+<label>Product Name:</label>
 <form:input type="text" name="productname" path="productName"/>
 <br>
 <br>
-<lable>Product description:</lable>
+<label>Product description:</label>
 <form:textarea rows="5" cols="15" path="productDescription"  />
 </textarea>
 <br>
 <br>
-<lable>Quantity:</lable>
+<label>Quantity:</label>
 <form:input type="text" name="qty" path="productQuantity"/>
 <br>
 <br>
-<lable>Price:</lable>
+<label>Price:</label>
 <form:input type="text" name="price" path="productPrice"/>
 <br>
 <br>
