@@ -46,10 +46,10 @@ public class LoginController {
 		}
 	}
 	
-	@RequestMapping("j_spring-security_logout")
+	@RequestMapping("j_spring_security_logout")
 	public String logout(HttpServletRequest request,HttpSession session,Model model) {
 		session.invalidate();
-		session=request.getSession(true);
+//		session=request.getSession(true);
 		model.addAttribute("logout","Logged Out Successfully");
 		return "redirect:/";
 	}

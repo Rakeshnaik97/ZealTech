@@ -19,8 +19,8 @@
 			default-target-url="/" 
 			username-parameter="j_username"
 			password-parameter="j_password" />
-		<security:logout logout-success-url="/Login?Logout"
-			logout-url="/j_spring_security_Logout" />
+		<security:logout logout-success-url="/Login?logout"
+			logout-url="/j_spring_security_logout" />
 	</security:http>
 
 

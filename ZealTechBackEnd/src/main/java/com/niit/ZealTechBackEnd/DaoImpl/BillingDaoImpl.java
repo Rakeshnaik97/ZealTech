@@ -41,9 +41,9 @@ public class BillingDaoImpl implements BillingDao {
 	}
 
 	@Override
-	public Billing getBilling(String billingId) {
+	public Billing getBilling(String userId) {
 		// TODO Auto-generated method stub
-		String s = "From Billing Where billingId ='" + billingId + "'";
+		String s = "From Billing Where userId ='" + userId + "'";
 		Query q = sessionFactory.getCurrentSession().createQuery(s);
 		List<Billing> list = (List<Billing>) q.list();
 		if (list == null || list.isEmpty()) {

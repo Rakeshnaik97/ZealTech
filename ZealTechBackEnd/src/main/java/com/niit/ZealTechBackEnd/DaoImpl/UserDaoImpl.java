@@ -28,14 +28,13 @@ public class UserDaoImpl implements UserDao {
 		this.sessionFactory = sessionFactory;
 	}
 
-	
 	public boolean saveorupdateUser(User user) {
 		// TODO Auto-generated method stub
-		Authentication auth=new Authentication();
+		Authentication auth = new Authentication();
 		auth.setUserName(user.getUserEmailId());
-		
-//		user.getBilling().setBillingPh_no(user.getUserPh_no());
-//		user.getBilling().setUser(user);
+		user.getBilling().setUser(user);
+		user.getBilling().setBillingPh_no(user.getUserPh_no());
+		user.getBilling().setBillingAddress(user.getUseraddress());
 		sessionFactory.getCurrentSession().saveOrUpdate(user.getCart());
 		sessionFactory.getCurrentSession().saveOrUpdate(user.getBilling());
 		sessionFactory.getCurrentSession().saveOrUpdate(auth);
@@ -43,14 +42,12 @@ public class UserDaoImpl implements UserDao {
 		return true;
 	}
 
-	
 	public boolean deleteUser(User user) {
 		// TODO Auto-generated method stub
 		sessionFactory.getCurrentSession().delete(user);
 		return true;
 	}
 
-	
 	public User getUser(String UserId) {
 		// TODO Auto-generated method stub
 		String s = "From User Where UserId ='" + UserId + "'";
@@ -65,18 +62,17 @@ public class UserDaoImpl implements UserDao {
 		}
 	}
 
-	
 	public List<User> list() {
 		// TODO Auto-generated method stub
-		List<User> user = (List<User>) sessionFactory.getCurrentSession().createCriteria(User.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+		List<User> user = (List<User>) sessionFactory.getCurrentSession().createCriteria(User.class)
+				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
 		return user;
 	}
-
 
 	@Override
 	public User isValid(String umail, String pwd) {
 		// TODO Auto-generated method stub
-		String s = "From User Where UserEmailId ='" + umail +"' and pwd='" +pwd+ "'";
+		String s = "From User Where UserEmailId ='" + umail + "' and pwd='" + pwd + "'";
 		Query q = sessionFactory.getCurrentSession().createQuery(s);
 		List<User> list = (List<User>) q.list();
 		if (list == null || list.isEmpty()) {
@@ -84,6 +80,20 @@ public class UserDaoImpl implements UserDao {
 			return null;
 		} else {
 //			System.out.println("User list");
+			return list.get(0);
+		}
+	}
+
+	@Override
+	public User getEmail(String currusername) {
+		String s = "From User Where UserEmailId ='" + currusername + "'";
+		Query q = sessionFactory.getCurrentSession().createQuery(s);
+		List<User> list = (List<User>) q.list();
+		if (list == null || list.isEmpty()) {
+			System.out.println("User List Not Found");
+			return null;
+		} else {
+			System.out.println("User list");
 			return list.get(0);
 		}
 	}

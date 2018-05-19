@@ -21,8 +21,8 @@ public class Product {
 	private String productId;
 	private String productName;
 	private String productDescription;
-	private String productQuantity;
-	private String productPrice;
+	private int productQuantity;
+	private double productPrice;
 	// For Multipart FileUpload
 	private String imageName;
 	@Transient
@@ -113,20 +113,21 @@ public class Product {
 		this.productDescription = productDescription;
 	}
 
-	public String getProductQuantity() {
+	public int getProductQuantity() {
 		return productQuantity;
 	}
 
-	public void setProductQuantity(String productQuantity) {
+	public void setProductQuantity(int productQuantity) {
 		this.productQuantity = productQuantity;
 	}
 
-	public String getProductPrice() {
+	public double getProductPrice() {
 		return productPrice;
 	}
 
-	public void setProductPrice(String productPrice) {
+	public void setProductPrice(double productPrice) {
 		this.productPrice = productPrice;
 	}
 
-}
+	
+	}

@@ -1,13 +1,11 @@
-<%@taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
-<%@taglib prefix="c" uri="http://www.springframework.org/tags" %>
-<%@taglib prefix="c1"  uri="http://java.sun.com/jsp/jstl/core"%>
+ <%@include file="Header1.jsp" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <%@include file="Header1.jsp" %>
+   
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Zeal Tech | Login</title>
 <meta charset="UTF-8">
@@ -49,7 +47,7 @@
 	</div>
 	<!-- //breadcrumbs --> 
 	<c:url value="/j_spring_security_check" var="login"/>
-	<form:form action="${login}" method="post">
+			<form:form action="${login}" method="post">
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('${loginZeal}/images/bg-01.jpg');">
 			<div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
@@ -58,15 +56,16 @@
 						Login With
 					</span>
 
-					<a href="#" class="btn-face m-b-20">
+					<a href="#" class="btn-face m-b-10">
 						<i class="fa fa-facebook-official"></i>
 						Facebook
 					</a>
 
-					<a href="#" class="btn-google m-b-20">
+					<a href="#" class="btn-google m-b-10" style="float:right; margin-top:-80px">
 						<img src="${loginZeal}/images/icons/icon-google.png" alt="GOOGLE">
 						Google
 					</a>
+					
 					
 					<div class="p-t-31 p-b-9">
 						<span class="txt1">
@@ -107,7 +106,7 @@
 							Sign up now
 						</a>
 					</div>
-				</form>
+		
 			</div>
 		</div>
 	</div>

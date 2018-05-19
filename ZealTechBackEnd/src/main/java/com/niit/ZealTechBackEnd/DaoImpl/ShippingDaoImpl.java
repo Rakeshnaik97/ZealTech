@@ -62,4 +62,17 @@ public class ShippingDaoImpl implements ShippingDao {
 		return list;
 	}
 
+	@Override
+	public List<Shipping> getaddbyuser(String userId) {
+		String s = "From Shipping Where userId='" + userId + "'";
+		Query q = sessionFactory.getCurrentSession().createQuery(s);
+		List<Shipping> list = (List<Shipping>) q.list();
+		if (list == null || list.isEmpty()) {
+			System.out.println("Shipping list is Empty");
+			return null;
+		} else {
+			System.out.println("Shipping list:");
+			return list;
+		}
+	}
 }

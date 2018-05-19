@@ -43,4 +43,11 @@ public class HomeController {
 	{
 	return "BJ"; // same as created jsp file
 	}
+	
+	@RequestMapping("/Logout")
+	public String Logout()
+	{
+	return "Home"; // same as created jsp file
+	}
+
 }

@@ -10,7 +10,7 @@ public interface BillingDao {
 
 	public boolean deleteBilling(Billing billing);
 
-	public Billing getBilling(String billingId);
+	public Billing getBilling(String userId);
 
 	public List<Billing> list();
 }

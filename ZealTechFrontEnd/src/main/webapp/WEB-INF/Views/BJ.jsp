@@ -38,7 +38,7 @@
 <!-- 			</div> -->
 <!-- 			</div> -->
 
-		<div class="sap_tabs">
+		<div class="sap_tabs" style="margin:0 150px 0 100px">
 			<label class="line"> </label>
 			<h2>LATES ARRIVAL</h2>	
 						 <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
@@ -53,7 +53,7 @@
 									<div class="tab_img">
 									  <div class="img-top simpleCart_shelfItem">
 										
-					   		  			   <img src="${ns}/images/pi2.jpg" class="img-responsive" alt=""/>
+					   		  			   <img src="${ns}/images/Iphone_X.jpg" class="img-responsive" alt="IPHONEX" style="height:500px;width:300px;"/>
 											    <div class="tab_desc">
 												 <ul class="round-top">
 												 	<li><a href="#"><i> </i></a></li>
@@ -75,16 +75,16 @@
 										</div>
 										<div class="img-top simpleCart_shelfItem">
 										  
-					   		  			   <img src="${ns}/images/pi3.jpg" class="img-responsive" alt=""/>
+					   		  			   <img src="${ns}/images/samsung-galaxy-s9-plus.jpg" class="img-responsive" style="height:500px;width:300px;" alt=""/>
 											<div class="tab_desc">
 												 <ul class="round-top">
-												 	<li><a href="#"><i> </i></a></li>
+												 	<li><a href=""${ns}/images/samsung-galaxy-s9-plus.jpg""><i> </i></a></li>
 
 												 </ul>
 												 
 												<div class="agency ">
 													<div class="agency-left">
-														<h6 class="jean">Zeal Tech</h6>
+														<h6 class="jean" Style="text-colour:white;">Samsung S9 Plus</h6>
 														<span class="dollor item_price">£</span>
 														<div class="clearfix"> </div>
 													</div>
@@ -101,27 +101,27 @@
 											 </div>
 											  <div class="img-top simpleCart_shelfItem">
 										  
-					   		  			   <img src="${ns}/images/pi4.jpg" class="img-responsive" alt=""/>
+					   		  			   <img src="${ns}/images/nokia-8-sirocco.jpg" class="img-responsive"  style="height:500px;width:300px;"alt=""/>
 											<div class="tab_desc">
 												 <ul class="round-top">
-												 	<li><a href="#"><i> </i></a></li>
+												 	<li><a href="${ns}/images/nokia-8-sirocco.jpg"><i> </i></a></li>
 												 </ul>
 												 
 												 <div class="agency ">
 													<div class="agency-left">
 														<h6 class="jean">Zeal Tech</h6>
-														<span class="dollor item_price">£</span>
+														<span class="dollor item_price" Style="text-colour:white;" >82,000/-</span>
 														<div class="clearfix"> </div>
 													</div>
 													<div class="agency-right">
 														<ul class="social">
-															<li><a href="#"><i class="item_add"> </i></a></li>
+															<li><a href="#" float="rigth"><i class="item_add"> </i></a></li>
 														</ul>
 													</div>
 												 </div>
 											  </div>
 											 <div class="col-in col-in-1">
-											  	<p>New <span>1%</span></p>
+											  	<p>New  <span>  01%</span></p>
 											  </div>
 											</div>
 											<div class="clearfix"></div>
@@ -132,7 +132,7 @@
 									<div class="tab_img">
 									  <div class="img-top simpleCart_shelfItem">
 										
-					   		  			   <img src="${ns}/images/pi9.jpg" class="img-responsive" alt=""/>
+					   		  			   <img src="${ns}/images/apple.jpeg" class="img-responsive" alt="" style="height:500px;width:300px;"/>
 											
 								              <div class="tab_desc">
 												 <ul class="round-top">

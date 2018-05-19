@@ -171,7 +171,13 @@
 						</security:authorize></c1:if>
 						<li><a href="mail.html">Contact Us</a></li>
 						<li><a href="mail.html">About us</a></li>
+						<c1:if test="${pageContext.request.userPrincipal.name!=null}">
+
+						<li style="float:right"><a href="<c:url value="/j_spring_security_logout"/>">Logout</a></li>
+						</c1:if>
+						<%-- 						<div style="color:white">Welcome ${pageContext.request.userPrincipal.name}</div> --%>
 					</ul>
+					
 				</div>
 			</nav>
 		</div>

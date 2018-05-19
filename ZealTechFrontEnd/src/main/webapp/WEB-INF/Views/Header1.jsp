@@ -1,6 +1,7 @@
 <%@taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@taglib prefix="c" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c1"  uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="form"  uri="http://www.springframework.org/tags/form"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <html>
@@ -22,7 +23,7 @@
 <!-- //font-awesome icons -->
 <!-- js -->
 <script src="${js}/jquery.min.js"></script>
-<script type="text/javascript" src="Resources/js/bootstrap-3.1.1.min.js"></script>
+<!-- <script type="text/javascript" src="Resources/js/bootstrap-3.1.1.min.js"></script> -->
 <link rel="stylesheet" href="${css}/jquery.countdown.css" />
 <!-- countdown -->
 <!-- //js -->
@@ -157,13 +158,16 @@
 						</security:authorize></c1:if>
 						<li><a href="mail.html">Contact Us</a></li>
 						<li><a href="mail.html">About us</a></li>
+						<c1:if test="${pageContext.request.userPrincipal.name!=null}">
+						<li style="float:right"><a href="<c:url value="/j_spring_security_logout"/>">Logout</a></li>
+						</c1:if>
+<%-- 						<div style="color:white">Welcome ${pageContext.request.userPrincipal.name}</div> --%>
 					</ul>
 				</div>
 			</nav>
 		</div>
 	</div>
 	<!-- //navigation -->
-
 
 
 

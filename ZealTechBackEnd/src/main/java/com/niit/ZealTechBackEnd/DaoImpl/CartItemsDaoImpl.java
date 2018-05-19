@@ -63,4 +63,18 @@ public class CartItemsDaoImpl implements CartItemsDao {
 		return list;
 	}
 
+	@Override
+	public List<CartItems> getlist(String cartId) {
+		String s = "From CartItems where cartId='" + cartId + "'";
+		Query q = sessionFactory.getCurrentSession().createQuery(s);
+		List<CartItems> list = (List<CartItems>) q.list();
+		if (list == null || list.isEmpty()) {
+			System.out.println("CartItems list Is Empty");
+			return null;
+		} else {
+			System.out.println("CartItems List:");
+			return list;
+		}
+	}
+
 }

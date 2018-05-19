@@ -21,7 +21,7 @@ public class User {
 	private String userPh_no;
 	private String userEmailId;
 	private String userPassword;
-	private String role = "Role_User";
+	private String role = "ROLE_USER";
 
 	public String getRole() {
 		return role;

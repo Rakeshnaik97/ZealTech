@@ -30,9 +30,9 @@ public class ProductTest {
 		pro.setProductId("P101");
 		pro.setProductName("Product1");
 		pro.setProductDescription("productDescription");
-		pro.setProductPrice("999");
-		pro.setProductQuantity("99");
-		pro.setProductQuantity("99");
+		pro.setProductPrice(999);
+		pro.setProductQuantity(99);
+//		pro.setProductQuantity(99);
 		cat = catDao.getCategory("C101"); // to fetch from categoryDao
 		pro.setCategory(cat); // setCategory is passing category object
 
@@ -53,8 +53,8 @@ public class ProductTest {
 		pro.setProductId("P102");
 		pro.setProductName("Product2");
 		pro.setProductDescription("productDescription");
-		pro.setProductPrice("999");
-		pro.setProductQuantity("99");
+		pro.setProductPrice(999);
+		pro.setProductQuantity(99);
 
 		cat = catDao.getCategory("C102"); // to fetch from categoryDao
 		pro.setCategory(cat); // setCategory is passing category object

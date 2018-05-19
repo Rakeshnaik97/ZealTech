@@ -13,4 +13,6 @@ public interface ShippingDao {
 	public Shipping getShipping(String shippingId);
 
 	public List<Shipping> list();
+
+	public List<Shipping> getaddbyuser(String userId);
 }

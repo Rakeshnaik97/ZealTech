@@ -50,14 +50,15 @@ public class CartController {
 	@Autowired
 	CartItemsDao cartItemsDao;
 
-	@RequestMapping("/addtocart/{id}")
-	public ModelAndView cart(@PathVariable("id") String id, HttpSession session) {
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+	@RequestMapping("/addtocart/{productId}")
+	public ModelAndView cart(@PathVariable("productId") String id, HttpSession session) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); 
 		if (!(authentication instanceof AnonymousAuthenticationToken)) {
 			String currusername = authentication.getName();
 			User user = userDao.getEmail(currusername);
 
 			if (user == null) {
+				//if user not loged in
 //				int items=0;
 				Product product1 = productDao.getProduct(id);
 				CartItems cartItem = new CartItems();
@@ -70,19 +71,20 @@ public class CartController {
 				cartDao.saveorupdateCart(cart);
 				session.setAttribute("items", cart.getCartTotalItems());
 				session.setAttribute("gtotal", cart.getCartGrandTotal());
-				return new ModelAndView("redirect:/");
+				return new ModelAndView("redirect:/Login");
 			} else {
-				cart = user.getCart();
+//				User lOGID IN
+				cart = user.getCart();   //TO FETCH ANY  ADDED CART ITEMS 
 //				ModelAndView mv=new ModelAndView();
 //				Cart cart=new Cart();
-				mv.addObject("cart", cart);
+//				mv.addObject("cart", cart);
 				Product product1 = productDao.getProduct(id);
 				CartItems cartItems = new CartItems();
 				cartItems.setCart(cart);
 				cartItems.setProduct(product1);
 				cartItems.setCartItemsPrice(product1.getProductPrice());
 				cartItemsDao.saveorupdateCartItems(cartItems);
-				cart.setCartGrandTotal(cart.getCartGrandTotal() + product1.getProductPrice());
+				cart.setCartGrandTotal(cart.getCartGrandTotal() + product1.getProductPrice()); 
 				cart.setCartGrandTotal(cart.getCartGrandTotal() + 1);
 				cartDao.saveorupdateCart(cart);
 				session.setAttribute("items", cart.getCartTotalItems());

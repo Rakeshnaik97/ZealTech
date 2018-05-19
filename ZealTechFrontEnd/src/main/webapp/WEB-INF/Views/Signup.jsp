@@ -98,7 +98,23 @@
 						<span class="focus-input100"></span>
 					</div>
 
+					<div class="wrap-input100 validate-input" data-validate = "Billing Id">
+						<span class="label-input100">Billing Id</span>
+						<form:input class="input100" type="text" name="billingId" path="billing.billingId" placeholder="Billing Id..."/>
+						<span class="focus-input100"></span>
+					</div>
+					
+						<div class="wrap-input100 validate-input" data-validate = "Billing Name">
+						<span class="label-input100">Billing Name</span>
+						<form:input class="input100" type="text" name="billingName" path="billing.billingName" placeholder="Billing Name..."/>
+						<span class="focus-input100"></span>
+					</div>
 
+					<div class="wrap-input100 validate-input" data-validate = "Country Required">
+						<span class="label-input100">Country</span>
+						<form:input class="input100" type="text" name="billingCountry" path="billing.billingCountry" placeholder="Billing Country..."/>
+						<span class="focus-input100"></span>
+					</div>
 
 					<div class="flex-m w-full p-b-33">
 						<div class="contact100-form-checkbox">
