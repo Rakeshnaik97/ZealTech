@@ -1,11 +1,24 @@
 package com.niit.ZealTechFrontEnd.Controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.niit.ZealTechBackEnd.Dao.ProductDao;
+import com.niit.ZealTechBackEnd.Model.Product;
 
 @Controller // Controllers Starting
 public class HomeController {
 
+	@Autowired
+	Product product;
+	
+	@Autowired
+	ProductDao productDao;
+	
 	@RequestMapping("/")
 	public String Home() {
 		return "Home"; // same as created jsp file
@@ -17,16 +30,34 @@ public class HomeController {
 							// Folder Here
 	}
 
-//	@RequestMapping("/Signup")
-//	public String Signup() {
-//		return "Signup"; // same as created jsp file
-//	}
+	@RequestMapping("/Address")
+	public String Address() {
+		return "Address"; // same as created jsp file
+	}
 
-//	@RequestMapping("/User")
-//	public String User() {
-//		return "User"; // same as created jsp file
-//	}
+	@RequestMapping("/Products")
+	public String Products() {
+		return "Products"; // same as created jsp file
+	}
 
+	@RequestMapping("/Products1")
+	public ModelAndView Products1() {
+		
+		ModelAndView mv= new ModelAndView("Products1");
+		List<Product> products=productDao.list();
+		mv.addObject("products", products);
+		return mv; // same as created jsp file
+	}
+
+	@RequestMapping("/Checkout")
+	public String Checkout() {
+		return "Checkout"; // same as created jsp file
+	}
+	
+	@RequestMapping("/Checkout1")
+	public String Checkout1() {
+		return "Checkout1"; // same as created jsp file
+	}
 
 	@RequestMapping("/Header1")
 	public String Header1() {

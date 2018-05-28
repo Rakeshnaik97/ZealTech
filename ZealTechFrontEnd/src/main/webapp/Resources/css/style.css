@@ -1103,7 +1103,7 @@ ul.wmuSliderPagination {
 /*-- //new-products --*/
 /*-- banner-bottom1 --*/
 .agileinfo_banner_bottom1_grid_left{
-	background:url(../images/Niit/Background/pexels-photo-843266.jpeg) no-repeat 0px 0px;
+	background:url(../images/Niit/Background/r.jpg) no-repeat 0px 0px;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -1141,7 +1141,7 @@ ul.wmuSliderPagination {
     letter-spacing: 2px;
     color: #ff5063;
     background: url(../images/img-sp.png) no-repeat 112px -4px;
-    padding: 0 45px 0 0;
+    padding: 0px 45px 0 0;
 }
 .agileinfo_banner_bottom1_grid_left a:hover,.team-bottom a:hover{
 	color:#212121;

@@ -9,6 +9,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Zeal Tech | Supplier</title>
+<c:url value="/Resources/Login" var="loginZeal"/>
+<link href="${css}/table.css" rel='stylesheet' type='text/css' />
 </head>
 <body>
 	<!-- breadcrumbs -->
@@ -27,11 +29,8 @@
 			</div>
 			</div>
 <c:url value="/addSupplier" var="sup"/>
-<form:form action="${sup}" method="post" commandName="supplier">
-<fieldset style="
-    margin-top: -50;
-    margin-right: 500px;
-    margin-left: 500px;border: 1px solid black;" >
+<form:form action="${sup}" method="post" commandName="supplier"     style="margin: -50 270 20 270;background-image: url('${loginZeal}/images/bg-01.jpg');" >
+<fieldset style="margin-left:300;" >
 <legend></legend>
 <label>Supplier ID:</label>
 <form:input type="text" name="supplierid" path="supplierId"/>
@@ -41,16 +40,17 @@
 <form:input type="text" name="suppliername" path="supplierName"/>
 <br>
 <br>
+<div>
 <label>Address:</label>
 <form:textarea rows="4" cols="25" path="supplierAddress"/>
-</textarea>
+</textarea></div>
 <br>
 <br>
 <label>PhoneNO:</label>
 <form:input type="tel" name="tel" path="supplierPh_no"/>
 <br>
 <br>
-<input type="submit" value="Add Supplier">
+<input type="submit" value="Add Supplier" style="margin: 0 10 20 50;">
 <input type="reset" value="Cancel">
 </fieldset>
 </form:form>

@@ -22,26 +22,29 @@
 <thead class="text-muted">
 <tr>
   <th scope="col">Product</th>
-  <th scope="col" width="120">Quantity</th>
-  <th scope="col" width="120">Price</th>
+  <th scope="col" width="80">Quantity</th>
+  <th scope="col" width="80">ProductName</th>
+  <th scope="col" width="80">Price</th>
   <th scope="col" width="200" class="text-right">Action</th>
 </tr>
 </thead>
 <tbody>
+<c1:forEach items="${cartItems}" var="car">
 <tr>
+
 	<td>
 <figure class="media">
-	<div class="img-wrap"><img src="http://bootstrap-ecommerce.com/main/images/items/2.jpg" class="img-thumbnail img-sm"></div>
+	<div class="img-wrap"><img src="${pageContext.request.contextPath}/Resources/${car.getProduct().getImageName()}" class="img-thumbnail img-sm"></div>
 	<figcaption class="media-body">
-		<h6 class="title text-truncate">Product name goes here </h6>
-		<dl class="param param-inline small">
-		  <dt>Size: </dt>
-		  <dd>XXL</dd>
-		</dl>
-		<dl class="param param-inline small">
-		  <dt>Color: </dt>
-		  <dd>Orange color</dd>
-		</dl>
+		<h6 class="title text-truncate">${car.getProduct().getProductName()} </h6>
+<!-- 		<dl class="param param-inline small"> -->
+<!-- 		  <dt>Size: </dt> -->
+<!-- 		  <dd>XXL</dd> -->
+<!-- 		</dl> -->
+<!-- 		<dl class="param param-inline small"> -->
+<!-- 		  <dt>Color: </dt> -->
+<!-- 		  <dd>Orange color</dd> -->
+<!-- 		</dl> -->
 	</figcaption>
 </figure> 
 	</td>
@@ -55,89 +58,29 @@
 	</td>
 	<td> 
 		<div class="price-wrap"> 
-			<var class="price">USD 145</var> 
-			<small class="text-muted">(USD5 each)</small> 
+			<var class="price">${car.getProduct().getProductName()}</var> 
+			<small class="text-muted"></small> 
 		</div> <!-- price-wrap .// -->
 	</td>
-	<td class="text-right"> 
-	<a title="" href="" class="btn btn-outline-success" data-toggle="tooltip" data-original-title="Save to Wishlist"> <i class="fa fa-heart"></i></a> 
-	<a href="" class="btn btn-outline-danger"> × Remove</a>
-	</td>
-</tr>
-<tr>
-	<td>
-<figure class="media">
-	<div class="img-wrap"><img src="http://bootstrap-ecommerce.com/main/images/items/1.jpg" class="img-thumbnail img-sm"></div>
-	<figcaption class="media-body">
-		<h6 class="title text-truncate">Product name goes here </h6>
-		<dl class="param param-inline small">
-		  <dt>Size: </dt>
-		  <dd>XXL</dd>
-		</dl>
-		<dl class="param param-inline small">
-		  <dt>Color: </dt>
-		  <dd>Orange color</dd>
-		</dl>
-	</figcaption>
-</figure> 
-	</td>
-	<td> 
-		<select class="form-control">
-			<option>1</option>
-			<option>2</option>	
-			<option>3</option>	
-			<option>4</option>	
-		</select> 
-	</td>
+	
 	<td> 
 		<div class="price-wrap"> 
-			<var class="price">USD 35</var> 
-			<small class="text-muted">(USD10 each)</small> 
+			<var class="price">${car.getProduct().getProductPrice()}</var> 
+			<small class="text-muted"></small> 
 		</div> <!-- price-wrap .// -->
 	</td>
 	<td class="text-right"> 
-	<a title="" href="" class="btn btn-outline-success" data-toggle="tooltip" data-original-title="Save to Wishlist"> <i class="fa fa-heart"></i></a> 
-	<a href="" class="btn btn-outline-danger btn-round"> × Remove</a>
+	<a title="" href="<c:url value="/Buy/${car.getProduct().getProductId()}/${car.getCartItemsId()}"/>" class="btn btn-outline-success" data-toggle="tooltip" data-original-title="Save to Wishlist"> <i class="fa fa-heart"></i>Buy</a> 
+	<a href="<c:url value="/Remove/${car.getCartItemsId()}"/>" class="btn btn-outline-danger"> × Remove</a>
 	</td>
-</tr>
-<tr>
-	<td>
-<figure class="media">
-	<div class="img-wrap"><img src="http://bootstrap-ecommerce.com/main/images/items/2.jpg" class="img-thumbnail img-sm"></div>
-	<figcaption class="media-body">
-		<h6 class="title text-truncate">Product name goes here </h6>
-		<dl class="param param-inline small">
-		  <dt>Size: </dt>
-		  <dd>XXL</dd>
-		</dl>
-		<dl class="param param-inline small">
-		  <dt>Color: </dt>
-		  <dd>Orange color</dd>
-		</dl>
-	</figcaption>
-</figure> 
-	</td>
-	<td> 
-		<select class="form-control">
-			<option>1</option>
-			<option>2</option>	
-			<option>3</option>	
-			<option>4</option>	
-		</select> 
-	</td>
-	<td> 
-		<div class="price-wrap"> 
-			<var class="price">USD 45</var> 
-			<small class="text-muted">(USD15 each)</small> 
-		</div> <!-- price-wrap .// -->
-	</td>
-	<td class="text-right"> 
-		<a title="" href="" class="btn btn-outline-success" data-toggle="tooltip" data-original-title="Save to Wishlist"> <i class="fa fa-heart"></i></a> 
-		<a href="" class="btn btn-outline-danger btn-round"> × Remove</a>
-	</td>
-</tr>
+	
+</tr></c1:forEach>
+
 </tbody>
 </table>
+
+<a title="" href="<c:url value="/Buyall"/>" class="btn btn-outline-success" data-toggle="tooltip" data-original-title="Save to Wishlist"> <i class="fa fa-heart"></i>BuyAll</a> 
+	<a href="<c:url value="/RemoveAll"/>" class="btn btn-outline-danger"> × RemoveAll</a>
 </div> <!-- card.// -->
 </div> 
 <!--container end.//-->

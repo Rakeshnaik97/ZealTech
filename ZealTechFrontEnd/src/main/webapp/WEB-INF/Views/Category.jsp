@@ -11,8 +11,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <c:url value="/Resources/images" var="images"/>
 <c:url value="/Resources/images/Niit/Backg/" var="img"/>
-
 <title>Zeal Tech | Category</title>
+<link href="${css}/table.css" rel='stylesheet' type='text/css' />
+<c:url value="/Resources/Login" var="loginZeal"/>
 </head>
 <body>
  	<!-- breadcrumbs -->
@@ -31,8 +32,8 @@
 			</div>
 			</div> 	  
 <c:url value="/addCategory" var="cat"/>
-<form:form action="${cat}" method="post" commandName="category">
-<fieldset align="center" style="margin: -40 500px 50;border: 1px solid black;">
+<form:form action="${cat}" method="post" commandName="category" style="margin: -50 270 20 270;background-image: url('${loginZeal}/images/bg-01.jpg');">
+<fieldset align="center">
 <legend></legend>
 <label>Category ID:</label>
 <form:input type="text" name="categoryid" path="catId" float="rigth"/>
@@ -57,7 +58,7 @@
 <tr>
 <td>${cat.getCatId()}</td>
 <td>${cat.getCatName()}</td>
-<td><a href="<c:url value="/editCategory/${cat.getCatId()}"/>">Edit</a>/<a href="<c:url value="/deleteCategory/${cat.getCatId()}"/>">Delete</a></td>
+<td><a href="<c:url value="/editCategory/${cat.getCatId()}"/>">Edit</a>|  <a href="<c:url value="/deleteCategory/${cat.getCatId()}"/>">Delete</a></td>
 </tr>
 </c1:forEach>
 </table>

@@ -60,15 +60,15 @@
 						Sign Up
 					</span>
 
-					<div class="wrap-input100 validate-input">
-						<span class="label-input100">User Id</span>
-						<form:input class="input100" type="text" name="userid" path="userId" />
-						<span class="focus-input100"></span>
-					</div>
+<!-- 					<div class="wrap-input100 validate-input"> -->
+<!-- 						<span class="label-input100">User Id</span> -->
+<%-- 						<form:input class="input100" type="text" name="userid" path="userId" /> --%>
+<!-- 						<span class="focus-input100"></span> -->
+<!-- 					</div> -->
 					
 						<div class="wrap-input100 validate-input" data-validate="Username is required">
-						<span class="label-input100">User Name</span>
-						<form:input class="input100" type="text" name="username" path="userName" placeholder="Username..."/>
+						<span class="label-input100">Name</span>
+						<form:input class="input100" type="text" name="username" path="userName" placeholder="Name..."/>
 						<span class="focus-input100"></span>
 					</div>
 					
@@ -98,11 +98,11 @@
 						<span class="focus-input100"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Billing Id">
-						<span class="label-input100">Billing Id</span>
-						<form:input class="input100" type="text" name="billingId" path="billing.billingId" placeholder="Billing Id..."/>
-						<span class="focus-input100"></span>
-					</div>
+<!-- 					<div class="wrap-input100 validate-input" data-validate = "Billing Id"> -->
+<!-- 						<span class="label-input100">Billing Id</span> -->
+<%-- 						<form:input class="input100" type="text" name="billingId" path="billing.billingId" placeholder="Billing Id..."/> --%>
+<!-- 						<span class="focus-input100"></span> -->
+<!-- 					</div> -->
 					
 						<div class="wrap-input100 validate-input" data-validate = "Billing Name">
 						<span class="label-input100">Billing Name</span>
@@ -112,7 +112,7 @@
 
 					<div class="wrap-input100 validate-input" data-validate = "Country Required">
 						<span class="label-input100">Country</span>
-						<form:input class="input100" type="text" name="billingCountry" path="billing.billingCountry" placeholder="Billing Country..."/>
+						<form:input class="input100" type="text" name="billingCountry" path="billing.billingCountry" placeholder=" Country..."/>
 						<span class="focus-input100"></span>
 					</div>
 

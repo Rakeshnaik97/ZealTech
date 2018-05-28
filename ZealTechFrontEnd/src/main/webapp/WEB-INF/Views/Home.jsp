@@ -69,6 +69,7 @@
 	
 	<!-- header modal -->
 	<!-- header -->
+	<div style="font-family:inherit;color:white;width:100%;height:auto;align:center;padding-left:1100px;float:right;background:#3c43a4;">Welcome <b><i>${pageContext.request.userPrincipal.name}</i></b></div>
 	<div class="header" id="home1">
 		<div class="container">
 			<div class="l_login">
@@ -88,10 +89,11 @@
 				</div>
 			</div>
 			<div class="cart cart box_1"> 
-				<form action="#" method="post" class="last"> 
+				<form action="<c:url value="/checkout"/>" method="post" class="last"> 
 					<input type="hidden" name="cmd" value="_cart" />
 					<input type="hidden" name="display" value="1" />
-					<button class="view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+					<button class="view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true" >${items}</i></button>
+				${items}
 				</form>   
 			</div>  
 		</div>
@@ -137,7 +139,7 @@
 											<li><a href="products.html">Apple<span>New</span></a></li>
 											<li><a href="products.html">Acer</a></li>
 											<li><a href="products.html">Asus</a></li>
-											<li><a href="products1.html"><i>Shop Now</i></a></li>
+											<li><a href="<c:url value="/Products1"/>"><i>Shop Now</i></a></li>
 										</ul>
 									</div>
 									<div class="col-sm-2">
@@ -229,10 +231,26 @@
 	<!-- banner-bottom1 -->
 	<div class="banner-bottom1">
 		<div class="agileinfo_banner_bottom1_grids">
-			<div class="col-md-7 agileinfo_banner_bottom1_grid_left">
-				<h3><span> <i>Zeal Tech</i></span></h3>
+		<div style="margin-top:40px">
+			<div class="col-md-12 agileinfo_banner_bottom1_grid_left">
+			<h3><span> <i style="color: #ff5063;">Zeal Tech</i></span></h3>
+			<div style="margin-top:80px">
+				<h3><span> <i style="color: #ff5063;"></i></span></h3>
+				<h3><span> <i style="color: #ff5063;"></i></span></h3>
+				<br>
+				<br>
+				<div></div>
+				
 				<a href="products.html">Shop Now</a>
+<!-- 				<div style="margin-top:50px"></div> -->
+<!-- 				<div class="col-md-12 agile_newsletter_left"> -->
+<!-- 				<h3>Newsletter</h3> -->
+<!-- 				<p>You Share We Care</p> -->
+<!-- 			</div> -->
 			</div>
+			</div>
+
+
 
 			<div class="clearfix"> </div>
 		</div>

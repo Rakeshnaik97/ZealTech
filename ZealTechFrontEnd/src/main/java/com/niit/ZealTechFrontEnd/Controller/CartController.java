@@ -85,7 +85,7 @@ public class CartController {
 				cartItems.setCartItemsPrice(product1.getProductPrice());
 				cartItemsDao.saveorupdateCartItems(cartItems);
 				cart.setCartGrandTotal(cart.getCartGrandTotal() + product1.getProductPrice()); 
-				cart.setCartGrandTotal(cart.getCartGrandTotal() + 1);
+				cart.setCartTotalItems(cart.getCartTotalItems() + 1);
 				cartDao.saveorupdateCart(cart);
 				session.setAttribute("items", cart.getCartTotalItems());
 				session.setAttribute("gtotal", cart.getCartGrandTotal());
@@ -108,18 +108,18 @@ public class CartController {
 				session.setAttribute("items", 0);
 				model.addAttribute("gtotal", 0.0);
 				model.addAttribute("msg", "No items  is added To Cart");
-				return "checkout";
+				return "Checkout";
 			}
 			model.addAttribute("cartItems", cartItems);
 			model.addAttribute("gtotal", cart.getCartGrandTotal());
 			session.setAttribute("items", cart.getCartTotalItems());
 			session.setAttribute("cartId", cart.getCartId());
-			return "checkout";
+			return "Checkout";
 		}
 		return "redirect:/checkout";
 	}
 
-	@RequestMapping(value = "/Remove/{cartItemsID}")
+	@RequestMapping(value = "/Remove/{cartItemsId}")
 	public ModelAndView RemoveFromCart(@PathVariable("cartItemsId") String id) {
 		ModelAndView modelAndView = new ModelAndView("redirect:/checkout");
 		cartItems = cartItemsDao.getCartItems(id);

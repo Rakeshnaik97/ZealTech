@@ -202,9 +202,9 @@
 					<h3>Pages</h3>
 					<ul class="info"> 
 						<li><a href="<c:url value="/"/>">Home</a></li>
-						<li><a href="<c:url value="/Product"/>">Products</a></li>
-						<li><a href="products.html">Contact Us</a></li>
-						<li><a href="products1.html">About us</a></li>
+						<li><a href="/">Products</a></li>
+						<li><a href="/Contactus">Contact Us</a></li>
+						<li><a href="/Contactus">About us</a></li>
 					</ul>
 					<h4>Follow Us</h4>
 					<div class="agileits_social_button">

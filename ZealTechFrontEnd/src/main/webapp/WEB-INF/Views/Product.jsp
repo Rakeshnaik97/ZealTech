@@ -9,16 +9,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Zeal Tech | Product</title>
-<style>
-label{
-	text-allign:left;
-	padding:20px
-}
-td,th
-{
-	text-align:center;
-}
-</style>
+<link href="${css}/table.css" rel='stylesheet' type='text/css' />
+<c:url value="/Resources/Login" var="loginZeal"/>
 </head>
 <body>
 	<!-- breadcrumbs -->
@@ -44,8 +36,8 @@ td,th
 			</div>
 			</div>
 <c:url value="/addProduct" var="pro"/>
-<form:form action="${pro}" method="post" commandName="product" enctype="multipart/form-data" >
-<fieldset align="center"  style="margin: -20px 450px;border: 1px solid black;">
+<form:form action="${pro}" method="post" commandName="product" enctype="multipart/form-data" style="margin: -50 270 20 270;background-image: url('${loginZeal}/images/bg-01.jpg');">
+<fieldset align="center" >
 <legend></legend>
 <label>Product ID:</label>
 <form:input type="text" name="productid" path="productId"/>
@@ -69,7 +61,7 @@ td,th
 <br>
 <br>
 <form:input type="file" path="pimg" name="pimg" style="
-    margin: 5;
+    margin: 0 0 0 240;
     padding-left: 60px;
     padding-bottom: 20px;
 "/>

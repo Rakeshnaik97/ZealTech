@@ -46,6 +46,7 @@
 		</div>
 	</div>
 	<!-- //breadcrumbs --> 
+	
 	<c:url value="/j_spring_security_check" var="login"/>
 			<form:form action="${login}" method="post">
 	<div class="limiter">

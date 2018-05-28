@@ -24,7 +24,7 @@ public class CartTest {
 		cart.setCartTotalItems(45);
 		cartDao.saveorupdateCart(cart);
 		user = userDao.getUser("U101");
-		cart.setUser(user);
+//		cart.setUser(user);
 
 		if (cartDao.saveorupdateCart(cart) == true) {
 			System.out.println("Cart added Successfully");
@@ -36,7 +36,7 @@ public class CartTest {
 		cart.setCartGrandTotal(143.413);
 		cart.setCartTotalItems(45);
 		user = userDao.getUser("U102");
-		cart.setUser(user);
+//		cart.setUser(user);
 
 		cartDao.saveorupdateCart(cart);
 
@@ -61,7 +61,7 @@ public class CartTest {
 			System.out.println(cart.getCartId());
 			System.out.println(cart.getCartGrandTotal());
 			System.out.println(cart.getCartTotalItems());
-			System.out.println(cart.getUser().getUserId());
+//			System.out.println(cart.getUser().getUserId());
 
 		}
 
@@ -70,7 +70,7 @@ public class CartTest {
 			System.out.println(ct.getCartId());
 			System.out.println(ct.getCartGrandTotal());
 			System.out.println(ct.getCartTotalItems());
-			System.out.println(ct.getUser().getUserId());
+//			System.out.println(ct.getUser().getUserId());
 		}
 	}
 }

@@ -27,17 +27,17 @@ public class Cart {
 		// TODO Auto-generated constructor stub
 	}
 
-	@OneToOne
-	@JoinColumn(name = "userId")
-	private User user;
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
+//	@OneToOne
+//	@JoinColumn(name = "userId")
+//	private User user;
+//
+//	public User getUser() {
+//		return user;
+//	}
+//
+//	public void setUser(User user) {
+//		this.user = user;
+//	}
 
 	@OneToMany(mappedBy = "cart")
 	private List<CartItems> cartItems;

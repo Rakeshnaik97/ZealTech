@@ -94,7 +94,7 @@ public class OrderController {
 				model.addAttribute("user", user);
 				model.addAttribute("shippings", shippings);
 				model.addAttribute("shipping", new Shipping());
-				model.addAttribute("p", product);
+				model.addAttribute("prot", product);
 				session.setAttribute("p", product);
 
 			}
@@ -160,7 +160,7 @@ public class OrderController {
 		model.addAttribute("billing", billing);
 		model.addAttribute("shipping", shippings);
 		model.addAttribute("product", product);
-		return "addressorder";
+		return "billing";
 	}
 
 	@RequestMapping("/pay")

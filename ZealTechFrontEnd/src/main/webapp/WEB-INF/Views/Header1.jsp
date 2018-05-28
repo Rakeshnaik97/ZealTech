@@ -56,6 +56,8 @@
 	
 	<!-- header modal -->
 	<!-- header -->
+	<div style="font-family:inherit;color:white;width:100%;height:auto;align:center;padding-left:1100px;float:right;background:#3c43a4;"><b><i>${pageContext.request.userPrincipal.name}</i></b></div>
+	
 	<div class="header" id="home1">
 		<div class="container">
 			<div class="l_login">
