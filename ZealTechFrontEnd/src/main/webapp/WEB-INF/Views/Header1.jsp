@@ -23,6 +23,7 @@
 <!-- //font-awesome icons -->
 <!-- js -->
 <script src="${js}/jquery.min.js"></script>
+<%-- <script src="${js}/jquery-1.11.1.min_Slide.js" type="text/javascript"></script> --%>
 <!-- <script type="text/javascript" src="Resources/js/bootstrap-3.1.1.min.js"></script> -->
 <link rel="stylesheet" href="${css}/jquery.countdown.css" />
 <!-- countdown -->
@@ -55,16 +56,15 @@
 	<!-- header modal -->
 	
 	<!-- header modal -->
-	<!-- header -->
-	<div style="font-family:inherit;color:white;width:100%;height:auto;align:center;padding-left:1100px;float:right;background:#3c43a4;"><b><i>${pageContext.request.userPrincipal.name}</i></b></div>
-	
+		<!-- header -->
+	<div style="font-family:inherit;color:white;width:100%;height:auto;align:center;padding-left:1100px;float:right;background:#3c43a4;">Welcome <b><i>${pageContext.request.userPrincipal.name}</i></b></div>
 	<div class="header" id="home1">
 		<div class="container">
 			<div class="l_login">
 				<a href="<c:url value="/Login"/>"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
 			</div>
 			<div class="l_logo">
-				<img src="";><h1><a href="index.html">Zeal Tech<span>Spirit Of Technology</span></a></h1>
+				<img src="";><h1><a href='<c:url value="/"></c:url>'>Zeal Tech<span>Spirit Of Technology</span></a></h1>
 			</div>
 			<div class="search">
 				<input class="search_box" type="checkbox" id="search_box">
@@ -77,10 +77,11 @@
 				</div>
 			</div>
 			<div class="cart cart box_1"> 
-				<form action="#" method="post" class="last"> 
+				<form action="<c:url value="/checkout"/>" method="post" class="last"> 
 					<input type="hidden" name="cmd" value="_cart" />
 					<input type="hidden" name="display" value="1" />
-					<button class="view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+					<button class="view-cart" type="submit" name="submit" value="" ><i class="fa fa-cart-arrow-down" aria-hidden="true" ></i></button>
+<%-- 				${items} --%>
 				</form>   
 			</div>  
 		</div>
@@ -110,32 +111,32 @@
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Mobiles</h6>
-											<li><a href="products.html">Apple<span>New</span></a></li>
-											<li><a href="products.html">Samsung<span>New</span></a></li> 
-											<li><a href="products.html">Mi</a></li>
-											<li><a href="products.html">VIVO</a></li>
-											<li><a href="products.html">Oppo</a></li>
+											<li><a href="<c:url value="/Products1"/>">Apple<span>New</span></a></li>
+											<li><a href="<c:url value="/Products1"/>">Samsung<span>New</span></a></li> 
+											<li><a href="<c:url value="/Products1"/>">Mi</a></li>
+											<li><a href="<c:url value="/Products1"/>">VIVO</a></li>
+											<li><a href="<c:url value="/Products1"/>">Oppo</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Laptops</h6>
-											<li><a href="products1.html">Sony</a></li>
-											<li><a href="products1.html">Dell</a></li>
-											<li><a href="products1.html">Lenovo</a></li>
-											<li><a href="products.html">Apple<span>New</span></a></li>
-											<li><a href="products.html">Acer</a></li>
-											<li><a href="products.html">Asus</a></li>
-											<li><a href="products1.html"><i>Shop Now</i></a></li>
+											<li><a href="<c:url value="/Products1"/>">Sony</a></li>
+											<li><a href="<c:url value="/Products1"/>">Dell</a></li>
+											<li><a href="<c:url value="/Products1"/>">Lenovo</a></li>
+											<li><a href="<c:url value="/Products1"/>">Apple<span>New</span></a></li>
+											<li><a href="<c:url value="/Products1"/>">Acer</a></li>
+											<li><a href="<c:url value="/Products1"/>">Asus</a></li>
+											<li><a href="<c:url value="/Products1"/>"><i>Shop Now</i></a></li>
 										</ul>
 									</div>
 									<div class="col-sm-2">
 										<ul class="multi-column-dropdown">
 											<h6>Home</h6>
-											<li><a href="products2.html">Mobile</a></li>
-											<li><a href="products2.html">Camera</a></li>
-											<li><a href="products2.html">Laptop</a></li>
-											<li><a href="products2.html">Accessories</a></li>
+											<li><a href="<c:url value="/Products1"/>">Mobile</a></li>
+											<li><a href="<c:url value="/Products1"/>">Camera</a></li>
+											<li><a href="<c:url value="/Products1"/>">Laptop</a></li>
+											<li><a href="<c:url value="/Products1"/>">Accessories</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-4">
@@ -158,20 +159,21 @@
 							</ul>
 						</li>  
 						</security:authorize></c1:if>
-						<li><a href="mail.html">Contact Us</a></li>
-						<li><a href="mail.html">About us</a></li>
+						<li><a href='<c:url value="/Contactus"></c:url>'>Contact Us</a></li>
+						<li><a href='<c:url value="/Aboutus"></c:url>'>About us</a></li>
 						<c1:if test="${pageContext.request.userPrincipal.name!=null}">
+
 						<li style="float:right"><a href="<c:url value="/j_spring_security_logout"/>">Logout</a></li>
 						</c1:if>
-<%-- 						<div style="color:white">Welcome ${pageContext.request.userPrincipal.name}</div> --%>
+						<%-- 						<div style="color:white">Welcome ${pageContext.request.userPrincipal.name}</div> --%>
 					</ul>
+					
 				</div>
 			</nav>
 		</div>
 	</div>
 	<!-- //navigation -->
-
-
+	
 
 
 

@@ -15,10 +15,10 @@ public class HomeController {
 
 	@Autowired
 	Product product;
-	
+
 	@Autowired
 	ProductDao productDao;
-	
+
 	@RequestMapping("/")
 	public String Home() {
 		return "Home"; // same as created jsp file
@@ -27,6 +27,12 @@ public class HomeController {
 	@RequestMapping("/Contactus")
 	public String Contactus() {
 		return "Contactus"; // same as created jsp file //We Should Add each and Page wchich we add in views
+							// Folder Here
+	}
+
+	@RequestMapping("/Aboutus")
+	public String Aboutus() {
+		return "Aboutus"; // same as created jsp file //We Should Add each and Page wchich we add in views
 							// Folder Here
 	}
 
@@ -42,9 +48,9 @@ public class HomeController {
 
 	@RequestMapping("/Products1")
 	public ModelAndView Products1() {
-		
-		ModelAndView mv= new ModelAndView("Products1");
-		List<Product> products=productDao.list();
+
+		ModelAndView mv = new ModelAndView("Products1");
+		List<Product> products = productDao.list();
 		mv.addObject("products", products);
 		return mv; // same as created jsp file
 	}
@@ -53,7 +59,7 @@ public class HomeController {
 	public String Checkout() {
 		return "Checkout"; // same as created jsp file
 	}
-	
+
 	@RequestMapping("/Checkout1")
 	public String Checkout1() {
 		return "Checkout1"; // same as created jsp file
@@ -70,15 +76,13 @@ public class HomeController {
 	}
 
 	@RequestMapping("/BJ")
-	public String BJ()
-	{
-	return "BJ"; // same as created jsp file
+	public String BJ() {
+		return "BJ"; // same as created jsp file
 	}
-	
+
 	@RequestMapping("/Logout")
-	public String Logout()
-	{
-	return "Home"; // same as created jsp file
+	public String Logout() {
+		return "Home"; // same as created jsp file
 	}
 
 }

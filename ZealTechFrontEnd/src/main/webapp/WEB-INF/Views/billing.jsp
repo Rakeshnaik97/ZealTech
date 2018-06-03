@@ -8,6 +8,7 @@
 <%@include file= "Header1.jsp"%>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <c:url value="/Resources/Login" var="loginZeal"/>
+<%-- 	<link rel="stylesheet" type="text/css" href="${loginZeal}/css/Raki.css"> --%>
 <style type="text/css">
 <style>
 
@@ -78,10 +79,10 @@ label{
 <form style=" background-image: url('${loginZeal}/images/bg-01.jpg'); width:530px;margin-left:200px">
 		<fieldset>
 			<legend><i><b>Billing<b></b></i> </legend>
-			<label>Id:</label>
-			<form:input type="text" name="BillingIdId" path="billing.billingId"/>
-			<br>
-			<br>
+<!-- 			<label>Id:</label> -->
+<%-- 			<form:input type="text" name="BillingIdId" path="billing.billingId"/> --%>
+<!-- 			<br> -->
+<!-- 			<br> -->
 			<label>Name:</label>
 			<form:input type ="text" name="BillingName" path="billing.billingName"/>
 			<br>
@@ -113,10 +114,10 @@ label{
 		
 			<fieldset align="center">
 			<legend><i><b>Shipping</b></i></legend>
-			<label>Id:</label>
-			<form:input type="text" name="ShippingId" path="shippingId"/>
-			<br>
-			<br>
+<!-- 			<label>Id:</label> -->
+<%-- 			<form:input type="text" name="ShippingId" path="shippingId"/> --%>
+<!-- 			<br> -->
+<!-- 			<br> -->
 			<label>Name:</label>
 			<form:input type ="text" name="ShippingName" path="shippingName"/>
 			<br>
@@ -133,7 +134,7 @@ label{
 			<form:input type ="text" name="Country" path="shippingCountry"/>
 			<br>
 			<br>
-			<input type="submit" name="Submit" style="border-radius: 6px;">
+			<input type="submit"  name="Submit" style="border-radius: 6px;color: #fff;background-color: #3b5998;" >
 			<input type="reset" name="Cancel" style="border-radius: 6px;">
 		</fieldset>
 	</form:form>

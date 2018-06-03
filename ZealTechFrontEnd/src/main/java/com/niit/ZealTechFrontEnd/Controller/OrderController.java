@@ -5,7 +5,8 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.OrderComparator.OrderSourceProvider;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -21,6 +22,7 @@ import com.niit.ZealTechBackEnd.Dao.CartDao;
 import com.niit.ZealTechBackEnd.Dao.CartItemsDao;
 import com.niit.ZealTechBackEnd.Dao.OrderDao;
 import com.niit.ZealTechBackEnd.Dao.OrderItemsDao;
+import com.niit.ZealTechBackEnd.Dao.PayDao;
 import com.niit.ZealTechBackEnd.Dao.ProductDao;
 import com.niit.ZealTechBackEnd.Dao.ShippingDao;
 import com.niit.ZealTechBackEnd.Dao.UserDao;
@@ -29,9 +31,11 @@ import com.niit.ZealTechBackEnd.Model.Cart;
 import com.niit.ZealTechBackEnd.Model.CartItems;
 import com.niit.ZealTechBackEnd.Model.Order;
 import com.niit.ZealTechBackEnd.Model.OrderItems;
+import com.niit.ZealTechBackEnd.Model.Pay;
 import com.niit.ZealTechBackEnd.Model.Product;
 import com.niit.ZealTechBackEnd.Model.Shipping;
 import com.niit.ZealTechBackEnd.Model.User;
+import com.niit.ZealTechFrontEnd.OtpGenerator.OtpGenerator;
 
 @Controller
 public class OrderController {
@@ -68,10 +72,14 @@ public class OrderController {
 	@Autowired
 	UserDao userDao;
 	@Autowired
+	Pay pay;
+	@Autowired
+	PayDao payDao;
+	@Autowired
 	List<CartItems> cartItems1;
-//	@Autowired
-//	private JavaMailSender mailsender;
-//
+	@Autowired
+	private JavaMailSender mailsender;
+
 	String o;
 
 	@RequestMapping("/Buyall")
@@ -145,7 +153,7 @@ public class OrderController {
 		sh.setUser(user);
 		shipping = sh;
 		model.addAttribute("billing", billing);
-		model.addAttribute("shippingAddress", shipping);
+		model.addAttribute("shipping", shipping);
 		model.addAttribute("prot", product);
 		model.addAttribute("cartItem1", cartItems1);
 		model.addAttribute("cart", cart);
@@ -156,9 +164,9 @@ public class OrderController {
 	@RequestMapping("/previous")
 	public String previous(Model model) {
 		List<Shipping> shippings = shippingDao.getaddbyuser(user.getUserId());
-		model.addAttribute("shippingAddresies", shipping);
+		model.addAttribute("shippingAddresies", shippings);
 		model.addAttribute("billing", billing);
-		model.addAttribute("shipping", shippings);
+		model.addAttribute("shipping", shipping);
 		model.addAttribute("product", product);
 		return "billing";
 	}
@@ -169,10 +177,10 @@ public class OrderController {
 //	model.addAttribute("cards",cards);
 //	model.addAttribute("card",new Card());
 
-		return "Payment";
+		return "Payment1";
 	}
 
-	@RequestMapping("/payment")
+	@RequestMapping("/payment1")
 	public String payment(@RequestParam("otp") String otp, Model model) {
 		int a;
 		if (otp == null)
@@ -182,17 +190,17 @@ public class OrderController {
 		switch (a) {
 		case 1:
 			if (otp.equals(o)) {
-//				pay.setPay_Method("COD");
-//				pay.setStatus("NO");
+				pay.setPayMethod("COD");
+				pay.setStatus("NO");
 				break;
 			} else {
 				return "redirect:/pay";
 
 			}
 		case 2:
-//			pay.setPay_Method("Card");
-//			pay.setStatus("yes");
-//			payDao.saveorupdate(pay);
+			pay.setPayMethod("Card");
+			pay.setStatus("yes");
+			payDao.saveorupdatePay(pay);
 //		cardDao.saveorupdate(car);
 			break;
 
@@ -236,7 +244,7 @@ public class OrderController {
 			session.setAttribute("items", cart.getCartTotalItems());
 			cartDao.saveorupdateCart(cart);
 			cartItemsDao.deleteCartItems(cartItems);
-			product.setProductQuantity(product.getProductQuantity()- 1);
+			product.setProductQuantity(product.getProductQuantity() - 1);
 			System.out.println("sadgds");
 			productDao.saveorupdateProduct(product);
 			// cartItemDao.delete(cartItemDao.getlistall(cart.getCart_id(),productInfo.getPrdid()));
@@ -276,38 +284,38 @@ public class OrderController {
 
 	}
 
-//	@RequestMapping(value = "/SendMail")
-//	public void SendMail() {
-////System.out.println(21312);
-//		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//		if (!(authentication instanceof AnonymousAuthenticationToken)) {
-//			String currusername = authentication.getName();
-//			user = userDao.getEmail(currusername);
-////			OtpGenerator ot = new OtpGenerator();
-//// String o=ot.Otpga();
-//			o = ot.Otpga();
-//			String recipientAddress = user.getEmail();
-//			String subject = "OTP";
-////String subject = request.getParameter("subject");
-//			String message = "your one time password is " + o + " ";
-//
-//// prints debug info
-//			System.out.println("To:" + recipientAddress);
-//			System.out.println("Subject: " + subject);
-//			System.out.println("Message: " + message);
-//
-////System.out.println("OTP:"+ otp);
-//// creates a simple e-mail object
-//			SimpleMailMessage email = new SimpleMailMessage();
-//			email.setTo(recipientAddress);
-//			email.setSubject(subject);
-//			email.setText(message);
-////email.setSubject(otp);
-//// sends the e-mail
-//			mailSender.send(email);
+	@RequestMapping(value = "/SendMail")
+	public void SendMail() {
+		System.out.println(21312);
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (!(authentication instanceof AnonymousAuthenticationToken)) {
+			String currusername = authentication.getName();
+			user = userDao.getEmail(currusername);
+			OtpGenerator ot = new OtpGenerator();
+// String o=ot.Otpga();
+			o = ot.Otpga();
+			String recipientAddress = user.getUserEmailId();
+			String subject = "Zeal Tech";
+//String subject = request.getParameter("subject");
+			String message = "your one time password is " + o + " "+"                    Zeal Tech                                                                                                                                                                                       Please Do Not Respond This Is An AutoGenerated E-Mail!";
+
+// prints debug info
+			System.out.println("To:" + recipientAddress);
+			System.out.println("Subject: " + subject);
+			System.out.println("Message: " + message);
+
+//System.out.println("OTP:"+ otp);
+// creates a simple e-mail object
+			SimpleMailMessage email = new SimpleMailMessage();
+			email.setTo(recipientAddress);
+			email.setSubject(subject);
+			email.setText(message);
+//email.setSubject(otp);
+// sends the e-mail
+			mailsender.send(email);
 
 // forwards to the view named "Result"
 //return "Result";
-//		}
-//	}
+		}
+	}
 }

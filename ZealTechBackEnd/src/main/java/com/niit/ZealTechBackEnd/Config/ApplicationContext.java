@@ -21,6 +21,7 @@ import com.niit.ZealTechBackEnd.Dao.CartItemsDao;
 import com.niit.ZealTechBackEnd.Dao.CategoryDao;
 import com.niit.ZealTechBackEnd.Dao.OrderDao;
 import com.niit.ZealTechBackEnd.Dao.OrderItemsDao;
+import com.niit.ZealTechBackEnd.Dao.PayDao;
 import com.niit.ZealTechBackEnd.Dao.ProductDao;
 import com.niit.ZealTechBackEnd.Dao.ShippingDao;
 import com.niit.ZealTechBackEnd.Dao.SupplierDao;
@@ -32,6 +33,7 @@ import com.niit.ZealTechBackEnd.DaoImpl.CartItemsDaoImpl;
 import com.niit.ZealTechBackEnd.DaoImpl.CategoryDaoImpl;
 import com.niit.ZealTechBackEnd.DaoImpl.OrderDaoImpl;
 import com.niit.ZealTechBackEnd.DaoImpl.OrderItemsDaoImpl;
+import com.niit.ZealTechBackEnd.DaoImpl.PayDaoImpl;
 import com.niit.ZealTechBackEnd.DaoImpl.ProductDaoImpl;
 import com.niit.ZealTechBackEnd.DaoImpl.ShippingDaoImpl;
 import com.niit.ZealTechBackEnd.DaoImpl.SupplierDaoImpl;
@@ -43,6 +45,7 @@ import com.niit.ZealTechBackEnd.Model.CartItems;
 import com.niit.ZealTechBackEnd.Model.Category;
 import com.niit.ZealTechBackEnd.Model.Order;
 import com.niit.ZealTechBackEnd.Model.OrderItems;
+import com.niit.ZealTechBackEnd.Model.Pay;
 import com.niit.ZealTechBackEnd.Model.Product;
 import com.niit.ZealTechBackEnd.Model.Shipping;
 import com.niit.ZealTechBackEnd.Model.Supplier;
@@ -90,6 +93,7 @@ public class ApplicationContext {
 		sessionBuilder.addAnnotatedClass(Order.class);
 		sessionBuilder.addAnnotatedClass(OrderItems.class);
 		sessionBuilder.addAnnotatedClass(Shipping.class);
+		sessionBuilder.addAnnotatedClass(Pay.class);
 		return sessionBuilder.buildSessionFactory();
 	}
 
@@ -147,22 +151,28 @@ public class ApplicationContext {
 	public CartItemsDao getCartItemsDao(SessionFactory sessionFactory) {
 		return new CartItemsDaoImpl(sessionFactory);
 	}
-	
+
 	@Autowired
 	@Bean("orderDao")
 	public OrderDao getOrderDao(SessionFactory sessionFactory) {
 		return new OrderDaoImpl(sessionFactory);
 	}
-	
+
 	@Autowired
 	@Bean("orderItemsDao")
 	public OrderItemsDao getOrderItemsDao(SessionFactory sessionFactory) {
 		return new OrderItemsDaoImpl(sessionFactory);
 	}
-	
+
 	@Autowired
 	@Bean("shippingDao")
 	public ShippingDao getShippingDao(SessionFactory sessionFactory) {
 		return new ShippingDaoImpl(sessionFactory);
+	}
+
+	@Autowired
+	@Bean("payDao")
+	public PayDao getPayDao(SessionFactory sessionFactory) {
+		return new PayDaoImpl(sessionFactory);
 	}
 }

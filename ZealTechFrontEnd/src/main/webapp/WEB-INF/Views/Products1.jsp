@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@include file="Header1.jsp" %>
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,14 +16,15 @@
 </style>
 </head>
 <body>
-
+<br>
+<br>
 
 <div class="container">
     <div class="row">
     <c1:forEach items="${products}" var="pro">
-        <div class="col-md-4">
+        <div class="col-md-4" >
               <div class="thumbnail">
-                <img src="${pageContext.request.contextPath}/Resources/${pro.getImageName()}" alt="" class="img-responsive">
+                <img src="${pageContext.request.contextPath}/Resources/${pro.getImageName()}" alt="" class="img-responsive" style="height: 250px;">
                 <div class="caption">
                   <h4 class="pull-right">${pro.getProductPrice()}</h4>
                   <h4><a href="#">${pro.getProductName()}</a></h4>
@@ -40,7 +42,7 @@
                 </div>
                 <div class="space-ten"></div>
                 <div class="btn-ground text-center">
-                    <button type="button" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> <a href="<c:url value="/addtocart/${pro.getProductId()}"/>">Add To Cart</a></button>
+                    <button type="button" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> <a href="<c:url value="/addtocart/${pro.getProductId()}"/>" style="color:white">Add To Cart</a></button>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#product_view"><i class="fa fa-search"></i> Quick View</button>
                 </div>
                 <div class="space-ten"></div>

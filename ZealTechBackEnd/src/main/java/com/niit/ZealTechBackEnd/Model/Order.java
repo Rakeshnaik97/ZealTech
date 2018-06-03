@@ -3,6 +3,7 @@ package com.niit.ZealTechBackEnd.Model;
 import java.util.List;
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -28,15 +29,15 @@ public class Order {
 		this.orderId = "ORDER" + UUID.randomUUID().toString().substring(30).toUpperCase();
 	}
 
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "billingId")
 	private Billing billing;
 
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "shippingId")
 	private Shipping shipping;
 
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "userId")
 	private User user;
 

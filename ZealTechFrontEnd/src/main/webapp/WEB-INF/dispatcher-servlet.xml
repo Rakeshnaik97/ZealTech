@@ -25,4 +25,23 @@ http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="MaxUploadSize" value="10240000"></property>
 	</bean>
+	<bean id="mailSender"
+		class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="587" />
+		<property name="username" value="zealtech97@gmail.com" />
+		<property name="password" value="9738620777" />
+
+
+		<!-- The name of the property, following JavaBean naming conventions -->
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.transport.protocol">smtp</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.debug">true</prop>
+				<prop key="mail.smtp.ssl.trust">smtp.gmail.com</prop>
+			</props>
+		</property>
+	</bean>
 </beans>

@@ -75,8 +75,10 @@
 			<div class="l_login">
 				<a href="<c:url value="/Login"/>"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
 			</div>
+			
 			<div class="l_logo">
-				<img src="";><h1><a href="index.html">Zeal Tech<span>Spirit Of Technology</span></a></h1>
+			<img src="${images}/Zeal.JPG" style="float:left;height:47px;border-radius:200px;">
+			<h1><a href="<c:url value="/"/>">Zeal Tech<span>Spirit Of Technology</span></a></h1>
 			</div>
 			<div class="search">
 				<input class="search_box" type="checkbox" id="search_box">
@@ -92,8 +94,8 @@
 				<form action="<c:url value="/checkout"/>" method="post" class="last"> 
 					<input type="hidden" name="cmd" value="_cart" />
 					<input type="hidden" name="display" value="1" />
-					<button class="view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true" >${items}</i></button>
-				${items}
+					<button class="view-cart" type="submit" name="submit" value="" style="width: auto;"><i class="fa fa-cart-arrow-down" aria-hidden="true" >${items}</i></button>
+<%-- 				${items} --%>
 				</form>   
 			</div>  
 		</div>
@@ -123,32 +125,32 @@
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Mobiles</h6>
-											<li><a href="products.html">Apple<span>New</span></a></li>
-											<li><a href="products.html">Samsung<span>New</span></a></li> 
-											<li><a href="products.html">Mi</a></li>
-											<li><a href="products.html">VIVO</a></li>
-											<li><a href="products.html">Oppo</a></li>
+											<li><a href="<c:url value="/Products1"/>">Apple<span>New</span></a></li>
+											<li><a href="<c:url value="/Products1"/>">Samsung<span>New</span></a></li> 
+											<li><a href="<c:url value="/Products1"/>">Mi</a></li>
+											<li><a href="<c:url value="/Products1"/>">VIVO</a></li>
+											<li><a href="<c:url value="/Products1"/>">Oppo</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Laptops</h6>
-											<li><a href="products1.html">Sony</a></li>
-											<li><a href="products1.html">Dell</a></li>
-											<li><a href="products1.html">Lenovo</a></li>
-											<li><a href="products.html">Apple<span>New</span></a></li>
-											<li><a href="products.html">Acer</a></li>
-											<li><a href="products.html">Asus</a></li>
+											<li><a href="<c:url value="/Products1"/>">Sony</a></li>
+											<li><a href="<c:url value="/Products1"/>">Dell</a></li>
+											<li><a href="<c:url value="/Products1"/>">Lenovo</a></li>
+											<li><a href="<c:url value="/Products1"/>">Apple<span>New</span></a></li>
+											<li><a href="<c:url value="/Products1"/>">Acer</a></li>
+											<li><a href="<c:url value="/Products1"/>">Asus</a></li>
 											<li><a href="<c:url value="/Products1"/>"><i>Shop Now</i></a></li>
 										</ul>
 									</div>
 									<div class="col-sm-2">
 										<ul class="multi-column-dropdown">
 											<h6>Home</h6>
-											<li><a href="products2.html">Mobile</a></li>
-											<li><a href="products2.html">Camera</a></li>
-											<li><a href="products2.html">Laptop</a></li>
-											<li><a href="products2.html">Accessories</a></li>
+											<li><a href="<c:url value="/Products1"/>">Mobile</a></li>
+											<li><a href="<c:url value="/Products1"/>">Camera</a></li>
+											<li><a href="<c:url value="/Products1"/>">Laptop</a></li>
+											<li><a href="<c:url value="/Products1"/>">Accessories</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-4">
@@ -171,8 +173,8 @@
 							</ul>
 						</li>  
 						</security:authorize></c1:if>
-						<li><a href="mail.html">Contact Us</a></li>
-						<li><a href="mail.html">About us</a></li>
+						<li><a href='<c:url value="/Contactus"></c:url>'>Contact Us</a></li>
+						<li><a href='<c:url value="/Aboutus"></c:url>'>About us</a></li>
 						<c1:if test="${pageContext.request.userPrincipal.name!=null}">
 
 						<li style="float:right"><a href="<c:url value="/j_spring_security_logout"/>">Logout</a></li>
@@ -203,7 +205,7 @@
 				<div class="slider-wrapper theme-default" style="margin:0px;">
             <div id="slider" class="nivoSlider">
                 <img src="${images}/Niit/Mobile For Sliders/R/1.jpg" data-thumb="${images}/Niit/Mobile For Sliders/R/1.jpg" alt="" />
-                <a href="#"><img src="${images}/Niit/Mobile For Sliders/R/4.jpg" data-thumb="${images}/Niit/Mobile For Sliders/R/4.jpg" alt="" title="" /></a>
+                <a href="<c:url value="/Products1"/>"><img src="${images}/Niit/Mobile For Sliders/R/4.jpg" data-thumb="${images}/Niit/Mobile For Sliders/R/4.jpg" alt="" title="" /></a>
                 <img src="${images}/Niit/Mobile For Sliders/R/3.jpg" data-thumb="${images}/Niit/Mobile For Sliders/R/3.jpg" alt="" data-transition="slideInLeft" />
                 <img src="${images}/Niit/Mobile For Sliders/R/2.jpg" data-thumb="${images}/Niit/Mobile For Sliders/R/2.jpg" alt="" title="#htmlcaption" />
             </div>
@@ -241,7 +243,7 @@
 				<br>
 				<div></div>
 				
-				<a href="products.html">Shop Now</a>
+				<a href="<c:url value="/Products1"/>">Shop Now</a>
 <!-- 				<div style="margin-top:50px"></div> -->
 <!-- 				<div class="col-md-12 agile_newsletter_left"> -->
 <!-- 				<h3>Newsletter</h3> -->
@@ -272,15 +274,15 @@
       </ol>
       <div class="carousel-inner" role="listbox" style="height:500px; width:1200px">
         <div class="item active">
-         <a href="#"> <img class="first-slide" src="${images}/Niit/Laptops For Sliders/1.jpeg" alt="First slide" style="height:500px; width:1200px"></a>
+         <a href="<c:url value="/Products1"/>"> <img class="first-slide" src="${images}/Niit/Laptops For Sliders/1.jpeg" alt="First slide" style="height:500px; width:1200px"></a>
        
         </div>
         <div class="item">
-         <a href="#"> <img class="second-slide " src="${images}/Niit/Laptops For Sliders/3.jpeg" alt="Second slide" style="height:500px; width:1200px"></a>
+         <a href="<c:url value="/Products1"/>"> <img class="second-slide " src="${images}/Niit/Laptops For Sliders/3.jpeg" alt="Second slide" style="height:500px; width:1200px"></a>
          
         </div>
         <div class="item">
-          <a href="#"><img class="third-slide " src="${images}/Niit/Laptops For Sliders/4.jpeg" alt="Third slide" style="height:500px; width:1200px"></a>
+          <a href="<c:url value="/Products1"/>"><img class="third-slide " src="${images}/Niit/Laptops For Sliders/4.jpeg" alt="Third slide" style="height:500px; width:1200px"></a>
         </div>
 		
       </div>
@@ -418,35 +420,35 @@
 					<h3>Reach Us At</h3>
 					<ul class="address">
 						<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>R Rakesh Naik <span>Banglore</span></li>
-						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">ZealTect@Gmail.com</a></li>
+						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">ZealTect97@Gmail.com</a></li>
 						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+(91)-9738620777</li>
 					</ul>
 				</div>
 				<div class="col-md-3 _footer_grid">
 					<h3>Products</h3>
 					<ul class="info"> 
-						<li><a href="about.html">Apple</a></li>
-						<li><a href="mail.html">Acer</a></li>
-						<li><a href="codes.html">Canon</a></li>
-						<li><a href="faq.html">Samsung</a></li>
-						<li><a href="products.html">Accessories</a></li>
+						<li><a href="<c:url value="/Products1"/>">Apple</a></li>
+						<li><a href="<c:url value="/Products1"/>">Acer</a></li>
+						<li><a href="<c:url value="/Products1"/>">Canon</a></li>
+						<li><a href="<c:url value="/Products1"/>">Samsung</a></li>
+						<li><a href="<c:url value="/Products1"/>">Accessories</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 _footer_grid">
 					<h3>Category</h3>
 					<ul class="info"> 
-						<li><a href="about.html">Mobiles</a></li>
-						<li><a href="mail.html">Laptops</a></li>
-						<li><a href="codes.html">Camera</a></li>
-						<li><a href="faq.html">Accessories</a></li>
-						<li><a href="products.html">Special Products</a></li>
+						<li><a href="<c:url value="/Products1"/>">Mobiles</a></li>
+						<li><a href="<c:url value="/Products1"/>">Laptops</a></li>
+						<li><a href="<c:url value="/Products1"/>">Camera</a></li>
+						<li><a href="<c:url value="/Products1"/>">Accessories</a></li>
+						<li><a href="<c:url value="/Products1"/>">Special Products</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 _footer_grid">
 					<h3>Pages</h3>
 					<ul class="info"> 
 						<li><a href="<c:url value="/"/>">Home</a></li>
-						<li><a href="#" >Products</a></li>
+						<li><a href="<c:url value="/Products1"/>">Products</a></li>
 						<li><a href="products.html">Contact Us</a></li>
 						<li><a href="products1.html">About us</a></li>
 					</ul>

@@ -1,26 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@taglib prefix="c" uri="http://www.springframework.org/tags" %>
-<%--    <%@include file="Header1.jsp" %>  --%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@taglib prefix="c" uri="http://www.springframework.org/tags" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c1" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@include file="Header1.jsp" %>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Zeal Tech | Pay</title>
+<title>Zeal Tech | Payment</title>
+<c:url value="/Resources/Payment1" var="p1"/>
 <c:url value="/Resources/Pay/css" var="pay"/>
 <c:url value="/Resources/Pay/images" var="img1"/>
 <c:url value="/Resources/Pay/js" var="js1"/>
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Payment Form Widget Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-		function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- //for-mobile-apps -->
-
-<link href='//fonts.googleapis.com/css?family=Fugaz+One' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Alegreya+Sans:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,800,800italic,900,900italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="${p1}/stylepay.css">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+var app=angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $http){
+	$http.get("http://localhost:8080/ZealTechFrontEnd/SendMail")
+	});
+</script>
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="${js1}/jquery.min.js"></script>
 <link href="${pay}/style.css" rel="stylesheet" type="text/css" media="all"/>
@@ -41,12 +40,14 @@ li.resp-tab-item span .pic3{
 li.resp-tab-item span .pic4{
     background: url(${img1}/pic4.png) no-repeat 38px 15px #fafafa !important;
 }
+li.resp-tab-item span .pic5{
+    background: url(${img1}/cod.png) no-repeat 38px 15px #fafafa !important;
+}
 </style>
-
-
 
 </head>
 <body>
+
 <div class="main">
 		<h1>Payment</h1>
 		<div class="content">
@@ -71,9 +72,12 @@ li.resp-tab-item span .pic4{
 										  <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span><label class="pic3"></label>Net Banking</span></li>
 										  <li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span><label class="pic4"></label>PayPal</span></li> 
 										  <li class="resp-tab-item" aria-controls="tab_item-3" role="tab"><span><label class="pic2"></label>Debit Card</span></li>
+										  <li class="resp-tab-item" aria-controls="tab_item-3" role="tab"><span><label class="pic3"></label>Cash On Delivery</span></li>
 										  <div class="clear"></div>
 									  </ul>	
 								</div>
+								<c:url value="/payment" var="pa"/>
+								<form:form  action="${pa}" method="post" id="myForm">
 								<div class="resp-tabs-container">
 									<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
 										<div class="payment-info">
@@ -232,7 +236,40 @@ li.resp-tab-item span .pic4{
 											</div>
 										</div>	
 									</div>
-								</div>	
+<!-- 									cash on delivery -->
+								
+								<c:url value="/payment" var="pa"/>
+								<form:form action="${pa}" method="post" id="myForm">
+									<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-3" align="center">	
+										<div class="payment-info">
+											
+											<h3 class="pay-title">Cash On Delivery</h3>
+											
+												<div class="tab-for">				
+													<h5>Enter Otp </h5>
+<!-- 													<h6>opt Sent to ur mail</h6>													 -->
+														<input ng-app="myApp" ng-controller="myCtrl" class="pay-logo" type="text"  name="otp" value="XXXXXX" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'XXXXXX';}" >
+												</div>	
+												<div class="transaction">
+													
+												
+													<div class="clear"></div>
+												</div>
+												<a href="<c:url value="/payment"/>"><input type="submit" value="pay"></a>
+											
+											<div class="single-bottom">
+													<ul>
+														<li>
+															<input type="checkbox"  id="brand" value="">
+															<label for="brand"><span></span>By checking this box, I agree to the Terms & Conditions & Privacy Policy.</label>
+														</li>
+													</ul>
+											</div>
+										</div>	
+									</div>
+									</form:form>
+								</div>
+								</form:form>	
 							</div>
 						</div>	
 

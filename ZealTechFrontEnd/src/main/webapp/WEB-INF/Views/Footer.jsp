@@ -167,6 +167,7 @@
 	</div>
 	<!-- //newsletter -->	
 	<!-- footer -->
+	
 	<div class="footer">
 		<div class="container">
 			<div class="_footer_grids">
@@ -174,37 +175,37 @@
 					<h3>Reach Us At</h3>
 					<ul class="address">
 						<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>R Rakesh Naik <span>Banglore</span></li>
-						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">ZealTect@Gmail.com</a></li>
+						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">ZealTect97@Gmail.com</a></li>
 						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+(91)-9738620777</li>
 					</ul>
 				</div>
 				<div class="col-md-3 _footer_grid">
 					<h3>Products</h3>
 					<ul class="info"> 
-						<li><a href="about.html">Apple</a></li>
-						<li><a href="mail.html">Acer</a></li>
-						<li><a href="codes.html">Canon</a></li>
-						<li><a href="faq.html">Samsung</a></li>
-						<li><a href="products.html">Accessories</a></li>
+						<li><a href="<c:url value="/Products1"/>">Apple</a></li>
+						<li><a href="<c:url value="/Products1"/>">Acer</a></li>
+						<li><a href="<c:url value="/Products1"/>">Canon</a></li>
+						<li><a href="<c:url value="/Products1"/>">Samsung</a></li>
+						<li><a href="<c:url value="/Products1"/>">Accessories</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 _footer_grid">
 					<h3>Category</h3>
 					<ul class="info"> 
-						<li><a href="about.html">Mobiles</a></li>
-						<li><a href="mail.html">Laptops</a></li>
-						<li><a href="codes.html">Camera</a></li>
-						<li><a href="faq.html">Accessories</a></li>
-						<li><a href="products.html">Special Products</a></li>
+						<li><a href="<c:url value="/Products1"/>">Mobiles</a></li>
+						<li><a href="<c:url value="/Products1"/>">Laptops</a></li>
+						<li><a href="<c:url value="/Products1"/>">Camera</a></li>
+						<li><a href="<c:url value="/Products1"/>">Accessories</a></li>
+						<li><a href="<c:url value="/Products1"/>">Special Products</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 _footer_grid">
 					<h3>Pages</h3>
 					<ul class="info"> 
 						<li><a href="<c:url value="/"/>">Home</a></li>
-						<li><a href="/">Products</a></li>
-						<li><a href="/Contactus">Contact Us</a></li>
-						<li><a href="/Contactus">About us</a></li>
+						<li><a href="<c:url value="/Products1"/>">Products</a></li>
+						<li><a href="products.html">Contact Us</a></li>
+						<li><a href="products1.html">About us</a></li>
 					</ul>
 					<h4>Follow Us</h4>
 					<div class="agileits_social_button">

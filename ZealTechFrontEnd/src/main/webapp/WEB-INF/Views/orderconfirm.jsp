@@ -11,7 +11,17 @@
 <title>Zeal Tech | Order Conformation</title>
 <link href="${css}/table.css" rel='stylesheet' type='text/css' />
 <c:url value="/Resources/Login" var="loginZeal"/>
+	<link rel="stylesheet" type="text/css" href="${loginZeal}/css/main.css">
+<style>
+th{
+color:white;
+}
+/* tr{ */
+/* background-color:#3c43a4; */
+/* } */
+</style>
 </head>
+
 <body>
 	<!-- breadcrumbs -->
 	<div class="breadcrumb_dress">
@@ -27,8 +37,8 @@
 
 <br><br>
 
-<table border="1px gray"  align="center">
-<tr>
+<table border="1px gray"  align="center" style="margin-left: 250px;">
+<tr style="background-color: #3c43a4;">
 <th>BillingId</th>
 <th>BillingName</th>
 <th>BillingAddress</th>
@@ -51,8 +61,8 @@
 <br>
 
 
-<table border="1px gray"  align="center">
-<tr>
+<table border="1px gray"  align="center" style="margin-left: 250px;">
+<tr style="background-color: #3c43a4;">
 <th>ShippingId</th>
 <th>ShippingName</th>
 <th>ShippingAddress</th>
@@ -75,15 +85,15 @@
 <br>
 
 
-<table border="1px gray"  align="center">
-<tr>
+<table border="1px gray"  align="center" style="margin-left: 250px;">
+<tr style="background-color: #3c43a4;">
 <th>Product Image</th>
 <th>Product Id</th>
 <th>Product Name</th>
 <th>Product Description</th>
 <th>Product Quantity</th>
 <th>Product Price</th>
-<th>Actions</th>
+<!-- <th>Actions</th> -->
 </tr>
 <c1:if test="${prot!=null}">
 <tr>
@@ -93,7 +103,7 @@
 <td>${prot.getProductDescription()}</td>
 <td>${prot.getProductQuantity()}</td>
 <td>${prot.getProductPrice()}</td>
-<td><a href="<c:url value="/editProduct/${prot.getProductId()}"/>">Edit</a>/<a href="<c:url value="/deleteProduct/${prot.getProductId()}"/>">Delete</a></td>
+<%-- <td><a href="<c:url value="/editProduct/${prot.getProductId()}"/>">Edit</a>/<a href="<c:url value="/deleteProduct/${prot.getProductId()}"/>">Delete</a></td> --%>
 </tr>
 </c1:if>
 <c1:if test="${prot==null}">
@@ -105,13 +115,22 @@
 <td>${pro.getProduct().getProductDescription()}</td>
 <td>${pro.getProduct().getProductQuantity()}</td>
 <td>${pro.getProduct().getProductPrice()}</td>
-<td><a href="<c:url value="/editProduct/${pro.getProduct().getProductId()}"/>">Edit</a>/<a href="<c:url value="/deleteProduct/${pro.getProduct().getProductId()}"/>">Delete</a></td>
+<%-- <td><a href="<c:url value="/editProduct/${pro.getProduct().getProductId()}"/>">Edit</a>/<a href="<c:url value="/deleteProduct/${pro.getProduct().getProductId()}"/>">Delete</a></td> --%>
 </tr>
 </c1:forEach>
 </c1:if>
 </table>
-<a href="<c:url value="/previous"/>">Previous</a>
-<a href="<c:url value="/pay"/>">Pay</a>
+<br>
+<br>
+<%-- <a href="<c:url value="/previous"/>">Previous</a> --%>
+<%-- <a href="<c:url value="/pay"/>">Pay</a> --%>
+	<a title="" href="<c:url value="/previous"/>" class="btn-face m-b-10" style="width: 300px;margin-left: 350px;">
+						Previous
+					</a>
+
+					<a href="<c:url value="/pay"/>" class="btn-google m-b-10" style="float:right; margin-top:-70px;width: 300px;margin-right: 350px;">
+						Pay
+					</a>
 </body>
 <%@include file="Footer.jsp" %>
 </html>

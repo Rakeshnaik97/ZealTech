@@ -57,12 +57,12 @@
 						Login With
 					</span>
 
-					<a href="#" class="btn-face m-b-10">
+					<a href="https://facebook.com" class="btn-face m-b-10">
 						<i class="fa fa-facebook-official"></i>
 						Facebook
 					</a>
 
-					<a href="#" class="btn-google m-b-10" style="float:right; margin-top:-80px">
+					<a href="https://www.Google.co.in" class="btn-google m-b-10" style="float:right; margin-top:-80px">
 						<img src="${loginZeal}/images/icons/icon-google.png" alt="GOOGLE">
 						Google
 					</a>
